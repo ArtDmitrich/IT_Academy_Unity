@@ -1222,12 +1222,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728353661}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 642, y: 1389, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 462.5807, y: -1349.905, z: 27.159485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1440877602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &748347473
 GameObject:
@@ -1238,13 +1238,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 748347474}
+  - component: {fileID: 748347475}
   m_Layer: 5
   m_Name: ScrollViewPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &748347474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1265,6 +1266,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -300, y: 0.00000007357448}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &748347475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748347473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4581f2225da828647961f6c180949618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 1733825601}
 --- !u!224 &761642507 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3980648506512430158, guid: 11b0a432ac0b94d40aebbdd3c5d76d27, type: 3}
@@ -2260,6 +2274,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1285273948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1285273949}
+  - component: {fileID: 1285273950}
+  m_Layer: 0
+  m_Name: TextFileReader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1285273949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285273948}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1440877602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1285273950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285273948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4063b6f7ec013f44d899aa8417cae05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1294934397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2595,6 +2653,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388800906}
   m_CullTransparentMesh: 1
+--- !u!1 &1440877601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1440877602}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1440877602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440877601}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.41933, y: 2738.905, z: -27.159485}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 728353663}
+  - {fileID: 1285273949}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1452797679 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2936449620688615583, guid: 87f1e13321bb9db43a94357e8c6d65fa, type: 3}
@@ -2799,51 +2890,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1733825597 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2981191384476759345, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
+--- !u!114 &1733825601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5983895866994146477, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
   m_PrefabInstance: {fileID: 3705089186580771630}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1733825599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733825597}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
---- !u!114 &1733825600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733825597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
 --- !u!1 &1783627748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,86 +3526,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 748347474}
     m_Modifications:
-    - target: {fileID: 136283411380944572, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 136283411380944572, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 136283411380944572, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 136283411380944572, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 4095.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 136283411380944572, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 136283411380944572, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973508766608180298, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_text
-      value: 'Details
-
-        The important elements in a scroll view are the viewport,
-        the scrolling content, and optionally one or two scrollbars.
-
-
-
-        The
-        root GameObject has the Scroll Rect component.
-
-        The viewport has
-        a Mask component. The viewport can either be the root GameObject, or a separate
-        GameObject that''s a child to the root. If auto-hiding scrollbars are used,
-        it must be a child. The viewport Rect Transform needs to be referenced in
-        the Viewport property of the Scroll Rect.
-
-        All the scrolling content
-        must be children of a single content GameObject that is a child to the viewport.
-        The content Rect Transform needs to be referenced in the Content property
-        of the Scroll Rect.
-
-        The scrollbars - if used - are children to the
-        root GameObject. See the Scrollbar page for more details on the setup of
-        a scrollbar and see the section Scrollbar setup below for information about
-        setup of scrollbars with a scroll view.
-
-        This image shows a setup
-        where the viewport is a child to the scroll view root. This is the default
-        used when using the GameObject > UI > Scroll View menu option.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973508766608180298, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_fontSize
-      value: 17.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973508766608180298, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_margin.w
-      value: 2587.566
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973508766608180298, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_margin.z
-      value: -674.6305
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973508766608180298, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973508766608180298, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 17.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973508766608180298, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3523155376057009876, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3631,26 +3608,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4938301091670128939, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1550.9
       objectReference: {fileID: 0}
     - target: {fileID: 7090681898436110933, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
       propertyPath: m_Name
       value: Scroll View
       objectReference: {fileID: 0}
-    - target: {fileID: 7631717643101103730, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      propertyPath: m_Name
-      value: Text
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2981191384476759345, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1733825599}
-    - targetCorrespondingSourceObject: {fileID: 2981191384476759345, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1733825600}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12e43796400fc3e4ca4c1165d71a3c28, type: 3}
 --- !u!1001 &4084096614953939093
 PrefabInstance:
@@ -3991,4 +3958,4 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1571431151}
   - {fileID: 1655925724}
-  - {fileID: 728353663}
+  - {fileID: 1440877602}
