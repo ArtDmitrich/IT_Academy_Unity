@@ -1,18 +1,20 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private TMP_Text _titleText;
 
-    [SerializeField] private Button _backToMainMenuButton;
-    [SerializeField] private Button _buttonsButton;
-    [SerializeField] private Button _togglesButton;
-    [SerializeField] private Button _dropsButton;
-    [SerializeField] private Button _inputButton;
-    [SerializeField] private Button _scrollViewButton;
+    [SerializeField] private Button _backToMainMenu;
+    [SerializeField] private Button _buttons;
+    [SerializeField] private Button _toggles;
+    [SerializeField] private Button _drops;
+    [SerializeField] private Button _input;
+    [SerializeField] private Button _scrollView;
 
     [SerializeField] private GameObject _mainMenuPanel;
     [SerializeField] private GameObject _buttonsPanel;
@@ -26,29 +28,29 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
-        _backToMainMenuButton.onClick.AddListener(delegate { ButtonClicked(ToText.MainMenu); });
-        _buttonsButton.onClick.AddListener(delegate { ButtonClicked(ToText.Buttons); });
-        _togglesButton.onClick.AddListener(delegate { ButtonClicked(ToText.Toggles); });
-        _dropsButton.onClick.AddListener(delegate { ButtonClicked(ToText.Drops); });
-        _inputButton.onClick.AddListener(delegate { ButtonClicked(ToText.Input); });
-        _scrollViewButton.onClick.AddListener(delegate { ButtonClicked(ToText.ScrollView); });
+        AddListenerToButton(_backToMainMenu, delegate { ButtonClicked(ToText.MainMenu); });
+        AddListenerToButton(_buttons, delegate { ButtonClicked(ToText.Buttons); });
+        AddListenerToButton(_toggles, delegate { ButtonClicked(ToText.Toggles); });
+        AddListenerToButton(_drops, delegate { ButtonClicked(ToText.Drops); });
+        AddListenerToButton(_input, delegate { ButtonClicked(ToText.Input); });
+        AddListenerToButton(_scrollView, delegate { ButtonClicked(ToText.ScrollView); });
 
-        _panels.Add(ToText.MainMenu, _mainMenuPanel);
-        _panels.Add(ToText.Buttons, _buttonsPanel);
-        _panels.Add(ToText.Toggles, _togglesPanel);
-        _panels.Add(ToText.Drops, _dropsPanel);
-        _panels.Add(ToText.Input, _inputPanel);
-        _panels.Add(ToText.ScrollView, _scrollViewPanel);
+        AddPanelToList(ToText.MainMenu, _mainMenuPanel);
+        AddPanelToList(ToText.Buttons, _buttonsPanel);
+        AddPanelToList(ToText.Toggles, _togglesPanel);
+        AddPanelToList(ToText.Drops, _dropsPanel);
+        AddPanelToList(ToText.Input, _inputPanel);
+        AddPanelToList(ToText.ScrollView, _scrollViewPanel);
 
         _currentPanel = _mainMenuPanel;
 
         foreach (var panel in _panels)
         {
-            panel.Value?.SetActive(false);
+            panel.Value.SetActive(false);
         }
         
-        _currentPanel?.SetActive(true);
-        _backToMainMenuButton.gameObject?.SetActive(false);
+        _currentPanel.SetActive(true);
+        _backToMainMenu.gameObject.SetActive(false);
         _titleText.text = ToText.MainMenu;
     }
 
@@ -56,18 +58,50 @@ public class MainMenuController : MonoBehaviour
     {
         _titleText.text = buttonName;
 
-        _currentPanel?.SetActive(false);
+        _currentPanel.SetActive(false);
         _currentPanel = _panels.GetValueOrDefault(buttonName);
-        _currentPanel?.SetActive(true);
+        _currentPanel.SetActive(true);
 
         if (_currentPanel != _mainMenuPanel)
         {
-            _backToMainMenuButton.gameObject?.SetActive(true);
+            _backToMainMenu.gameObject.SetActive(true);
         }
         else
         {
-            _backToMainMenuButton.gameObject?.SetActive(false);
+            _backToMainMenu.gameObject.SetActive(false);
         }
+    }
+
+    private void AddListenerToButton(Button button, UnityAction method)
+    {
+        if (button == null)
+        {            
+            Debug.Log("Button is NULL!!!");
+            return;
+        }
+
+        button.onClick.AddListener(method);
+    }
+
+    private void AddPanelToList(string key, GameObject panel)
+    {
+        if (panel == null)
+        {
+            Debug.Log($"Panel {key} is NULL!!!");
+            return;
+        }
+
+        _panels.Add(key, panel);
+    }
+
+    private void OnDestroy()
+    {
+        _backToMainMenu.onClick.RemoveListener(delegate { ButtonClicked(ToText.MainMenu); });
+        _buttons.onClick.RemoveListener(delegate { ButtonClicked(ToText.Buttons); });
+        _toggles.onClick.RemoveListener(delegate { ButtonClicked(ToText.Toggles); });
+        _drops.onClick.RemoveListener(delegate { ButtonClicked(ToText.Drops); });
+        _input.onClick.RemoveListener(delegate { ButtonClicked(ToText.Input); });
+        _scrollView.onClick.RemoveListener(delegate { ButtonClicked(ToText.ScrollView); });
     }
 }
 

@@ -22,11 +22,14 @@ public class TogglesPanelController : MonoBehaviour
 
         foreach (var toggle in _toggles)
         {
-            toggle.onValueChanged.AddListener(delegate { ToggleValueChanged(toggle); });
-
-            if(_toggleGroup != null)
+            if(toggle != null)
             {
-                toggle.group = _toggleGroup;
+                toggle.onValueChanged.AddListener(delegate { ToggleValueChanged(toggle); });
+
+                if(_toggleGroup != null)
+                {
+                   toggle.group = _toggleGroup;
+                }
             }
         }
 
@@ -42,8 +45,17 @@ public class TogglesPanelController : MonoBehaviour
     {
         _text.text = newText;
     }
+
     private void RefreshPanel()
     {
         ChangeText("New Text");
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var toggle in _toggles)
+        {
+            toggle.onValueChanged.RemoveListener(delegate { ToggleValueChanged(toggle); });
+        }
     }
 }

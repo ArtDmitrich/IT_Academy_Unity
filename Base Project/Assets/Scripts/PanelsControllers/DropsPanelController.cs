@@ -17,15 +17,21 @@ public class DropsPanelController : MonoBehaviour
 
     private void Start()
     {
-        _dropdown.options.Clear();
-
-        foreach (var dropItem in _dropItems)
+        if (_dropdown != null)
         {
-            _dropdown.options.Add(new TMP_Dropdown.OptionData() { text = dropItem });
-        }
+            _dropdown.options.Clear();
 
-        DropDownItemSelected(_dropdown);
-        _dropdown.onValueChanged.AddListener(delegate { DropDownItemSelected(_dropdown); });
+            foreach (var dropItem in _dropItems)
+            {
+                _dropdown.options.Add(new TMP_Dropdown.OptionData() { text = dropItem });
+            }
+
+            _dropdown.onValueChanged.AddListener(delegate { DropDownItemSelected(_dropdown); });
+        }
+        else
+        {
+            Debug.Log("Dropdown is NULL!!!");
+        }
     }
 
     private void DropDownItemSelected(TMP_Dropdown dropdown )
@@ -43,5 +49,10 @@ public class DropsPanelController : MonoBehaviour
     private void RefreshPanel()
     {
         ChangeText("New Text");
+    }
+
+    private void OnDestroy()
+    {
+        _dropdown.onValueChanged.RemoveListener(delegate { DropDownItemSelected(_dropdown); });
     }
 }

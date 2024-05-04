@@ -1202,12 +1202,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _titleText: {fileID: 1163989771}
-  _backToMainMenuButton: {fileID: 126757694}
-  _buttonsButton: {fileID: 3053209912303590737}
-  _togglesButton: {fileID: 1452797679}
-  _dropsButton: {fileID: 2037936134}
-  _inputButton: {fileID: 436521802}
-  _scrollViewButton: {fileID: 1668659904}
+  _backToMainMenu: {fileID: 126757694}
+  _buttons: {fileID: 3053209912303590737}
+  _toggles: {fileID: 1452797679}
+  _drops: {fileID: 2037936134}
+  _input: {fileID: 436521802}
+  _scrollView: {fileID: 1668659904}
   _mainMenuPanel: {fileID: 152674793}
   _buttonsPanel: {fileID: 1144535673}
   _togglesPanel: {fileID: 158849197}
@@ -1986,10 +1986,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2cc7af222f7bf54c9cd8245bc83fda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numberButtons:
+  _numbers:
   - {fileID: 1347577475}
   - {fileID: 2051864287}
-  _disableButton: {fileID: 1001399117}
+  _disable: {fileID: 1001399117}
   _text: {fileID: 1783627750}
 --- !u!1 &1163989769
 GameObject:

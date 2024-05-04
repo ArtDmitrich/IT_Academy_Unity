@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ButtonsPanelController : MonoBehaviour
 {
-    [SerializeField] private List<Button> _numberButtons;
-    [SerializeField] private Button _disableButton;
+    [SerializeField] private List<Button> _numbers;
+    [SerializeField] private Button _disable;
 
     [SerializeField] private TMP_Text _text;
 
@@ -17,12 +17,26 @@ public class ButtonsPanelController : MonoBehaviour
 
     private void Start()
     {
-        foreach (var button in _numberButtons)
+        foreach (var button in _numbers)
         {
-            button.onClick.AddListener(delegate { ButtonClicked(button); });
+            if (button != null)
+            {
+                button.onClick.AddListener(delegate { ButtonClicked(button); });              
+            }
+            else
+            {
+                Debug.Log("Number button is NULL!!!");
+            }
         }
 
-        _disableButton.onClick.AddListener(delegate { SetInteractableForAllButtons(false); });
+        if (_disable != null)
+        {
+            _disable.onClick.AddListener(delegate { SetInteractableForAllButtons(false); });           
+        }
+        else
+        {
+            Debug.Log("Disable button is NULL!!!");
+        }
     }
 
     private void ButtonClicked(Button button)
@@ -37,12 +51,12 @@ public class ButtonsPanelController : MonoBehaviour
 
     private void SetInteractableForAllButtons(bool value)
     {
-        foreach (var button in _numberButtons)
+        foreach (var button in _numbers)
         {
             button.interactable = value;
         }
 
-        _disableButton.interactable = value;
+        _disable.interactable = value;
     }
 
     private void RefreshPanel()
@@ -50,5 +64,15 @@ public class ButtonsPanelController : MonoBehaviour
         SetInteractableForAllButtons(true);
 
         ChangeText("New Text");
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var button in _numbers)
+        {
+            button.onClick.RemoveListener(delegate { ButtonClicked(button); });
+        }
+
+        _disable.onClick.RemoveListener(delegate { SetInteractableForAllButtons(false); });
     }
 }
