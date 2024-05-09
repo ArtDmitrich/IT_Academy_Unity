@@ -13,7 +13,6 @@ public static class Coroutines
 
     public static IEnumerator SetButtonInteractivityForTime(Button button, bool isInteractivity, float time)
     {
-        Debug.Log("Coroutine method");
         button.interactable = isInteractivity;
 
         yield return new WaitForSeconds(time);
