@@ -3443,6 +3443,7 @@ MonoBehaviour:
   - {fileID: 2052405263}
   _nextItem: {fileID: 945070544}
   _prevItem: {fileID: 1658235479}
+  _durationOfDisable: 0.5
 --- !u!4 &2086774533
 Transform:
   m_ObjectHideFlags: 0
