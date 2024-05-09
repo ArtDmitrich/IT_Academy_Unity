@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class Coroutines
 {
@@ -8,5 +9,15 @@ public static class Coroutines
         yield return new WaitForSeconds(time);
 
         obj.SetActive(isActive);
+    }
+
+    public static IEnumerator SetButtonInteractivityForTime(Button button, bool isInteractivity, float time)
+    {
+        Debug.Log("Coroutine method");
+        button.interactable = isInteractivity;
+
+        yield return new WaitForSeconds(time);
+
+        button.interactable = !isInteractivity;
     }
 }

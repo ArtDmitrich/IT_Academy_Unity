@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546577710155313}
   - component: {fileID: 4528546577710155310}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546577721405910}
   - component: {fileID: 4528546577721405911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546577732429845}
   - component: {fileID: 4528546577732429842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546577913169818}
   - component: {fileID: 4528546577913169819}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578037244550}
   - component: {fileID: 4528546578037244551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578126926690}
   - component: {fileID: 4528546578126926691}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578144260711}
   - component: {fileID: 4528546578144260708}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578234227239}
   - component: {fileID: 4528546578234227236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578270181197}
   - component: {fileID: 4528546578270181194}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578433504900}
   - component: {fileID: 4528546578433504901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578528266971}
   - component: {fileID: 4528546578528266968}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578536234554}
   - component: {fileID: 4528546578536234555}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578645490411}
   - component: {fileID: 4528546578645490408}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578666393609}
   - component: {fileID: 4528546578666393606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578830175973}
   - component: {fileID: 4528546578830175970}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578845641371}
   - component: {fileID: 4528546578845641368}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,7 +860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578881723195}
   - component: {fileID: 4528546578881723192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578964139653}
   - component: {fileID: 4528546578964139650}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,7 +968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546578995645980}
   - component: {fileID: 4528546578995645981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1021,7 +1021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546579097251239}
   - component: {fileID: 4528546579097251236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1074,7 +1074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546579114861187}
   - component: {fileID: 4528546579114861184}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1127,7 +1127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546579290524232}
   - component: {fileID: 4528546579290524233}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1180,7 +1180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546579328760742}
   - component: {fileID: 4528546579328760743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546579436308695}
   - component: {fileID: 4528546579436308692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1288,7 +1288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546579476122721}
   - component: {fileID: 4528546579476122718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1343,7 +1343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546579499532397}
   - component: {fileID: 4528546579499532394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1395,7 +1395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4528546579686287917}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1454,7 +1454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4528546579805259923}
   - component: {fileID: 4528546579805259920}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1510,7 +1510,7 @@ GameObject:
   - component: {fileID: 5865718247912209800}
   - component: {fileID: 7406429339876225581}
   - component: {fileID: 4696158711692560103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StarSparrow12
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -46,11 +46,21 @@ public class Painter : MonoBehaviour
         mesh.material.color = color;
     }
 
+    private void RemoveListener(Button button, UnityAction method)
+    {
+        if (button == null)
+        {
+            return;
+        }
+
+        button.onClick.RemoveListener(method);
+    }
+
     private void OnDestroy()
     {
-        _red.onClick.RemoveAllListeners();
-        _blue.onClick.RemoveAllListeners();
-        _yellow.onClick.RemoveAllListeners();
-        _green.onClick.RemoveAllListeners();
+        RemoveListener(_red, delegate { SetColor(_selectedMesh, Color.red); });
+        RemoveListener(_blue, delegate { SetColor(_selectedMesh, Color.blue); });
+        RemoveListener(_yellow, delegate { SetColor(_selectedMesh, Color.yellow); });
+        RemoveListener(_green, delegate { SetColor(_selectedMesh, Color.green); });
     }
 }

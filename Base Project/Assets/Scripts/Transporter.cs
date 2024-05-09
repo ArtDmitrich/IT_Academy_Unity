@@ -7,14 +7,16 @@ public class Transporter : MonoBehaviour
     [SerializeField] private Transform _leftPoint;
     [SerializeField] private Transform _centerPoint;
 
-    public void MoveToRight(Transform tansformToMove, float duration)
+    public void MoveToSide(Transform tansformToMove, float duration, bool toRight)
     {
-        tansformToMove.DOMove(_rightPoint.position, duration);
-    }
-
-    public void MoveToLeft(Transform tansformToMove, float duration)
-    {
-        tansformToMove.DOMove(_leftPoint.position, duration);
+        if (toRight)
+        {
+            tansformToMove.DOMove(_rightPoint.position, duration);
+        }
+        else
+        {
+            tansformToMove.DOMove(_leftPoint.position, duration);
+        }
     }
 
     public void MoveToCenter(Transform tansformToMove, float duration, bool fromLeft)
