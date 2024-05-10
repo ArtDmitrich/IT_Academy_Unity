@@ -29,7 +29,6 @@ public class MainController : MonoBehaviour
         {
             _miniCameraPlatform.RotatePlatform(inputHor * Time.deltaTime);
         }
-
     }
 
     private void SetSelectedAirplane(GameObject airplane, bool next)

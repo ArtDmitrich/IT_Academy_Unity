@@ -16,6 +16,7 @@ public class CameraMover : MonoBehaviour
 
     [SerializeField] private Transform _targetForLook;
 
+    [SerializeField] private PlatformRotator _platformRotator;
     private void Start()
     {
         AddListenerToButton(_up, delegate { SetCameraPosition(_upSpot.position); });
@@ -39,6 +40,14 @@ public class CameraMover : MonoBehaviour
 
     private void SetCameraPosition(Vector3 position)
     {
+        //"костыль" чтобы пофиксить баг: если повернуть самолет при помощи тача и переключить на другой вид (сверху или снизу), то на мини камере появится повернутый самолет
+        //пробовал выставлть локальный угол по оси z в 0, но тогда некорректно отображались другие виды (фронтальный или слева). 
+        //поэтому ресетим саму платформу при переключении камеры
+        if(_platformRotator != null)
+        {
+            _platformRotator.ResetRotation();
+        }
+
         transform.position = position;
 
         transform.LookAt(_targetForLook);
