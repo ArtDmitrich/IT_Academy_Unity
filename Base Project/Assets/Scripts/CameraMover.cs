@@ -19,10 +19,10 @@ public class CameraMover : MonoBehaviour
     [SerializeField] private PlatformRotator _platformRotator;
     private void Start()
     {
-        AddListenerToButton(_up, delegate { SetCameraPosition(_upSpot.position); });
-        AddListenerToButton(_down, delegate { SetCameraPosition(_downSpot.position); });
-        AddListenerToButton(_face, delegate { SetCameraPosition(_faceSpot.position); });
-        AddListenerToButton(_left, delegate { SetCameraPosition(_leftSpot.position); });
+        AddListenerToButton(_up, delegate { SetCameraPosition(_upSpot.localPosition); });
+        AddListenerToButton(_down, delegate { SetCameraPosition(_downSpot.localPosition); });
+        AddListenerToButton(_face, delegate { SetCameraPosition(_faceSpot.localPosition); });
+        AddListenerToButton(_left, delegate { SetCameraPosition(_leftSpot.localPosition); });
 
         SetCameraPosition(_upSpot.position);
     }
@@ -43,14 +43,15 @@ public class CameraMover : MonoBehaviour
         //"костыль" чтобы пофиксить баг: если повернуть самолет при помощи тача и переключить на другой вид (сверху или снизу), то на мини камере появится повернутый самолет
         //пробовал выставлть локальный угол по оси z в 0, но тогда некорректно отображались другие виды (фронтальный или слева). 
         //поэтому ресетим саму платформу при переключении камеры
-        if(_platformRotator != null)
+        if (_platformRotator != null)
         {
             _platformRotator.ResetRotation();
         }
 
-        transform.position = position;
+        transform.localPosition = position;
 
         transform.LookAt(_targetForLook);
+
     }
 
     private void RemoveListener(Button button, UnityAction method)
@@ -65,9 +66,9 @@ public class CameraMover : MonoBehaviour
 
     private void OnDestroy()
     {
-        RemoveListener(_up, delegate { SetCameraPosition(_upSpot.position); });
-        RemoveListener(_down, delegate { SetCameraPosition(_downSpot.position); });
-        RemoveListener(_face, delegate { SetCameraPosition(_faceSpot.position); });
-        RemoveListener(_left, delegate { SetCameraPosition(_leftSpot.position); });
+        RemoveListener(_up, delegate { SetCameraPosition(_upSpot.localPosition); });
+        RemoveListener(_down, delegate { SetCameraPosition(_downSpot.localPosition); });
+        RemoveListener(_face, delegate { SetCameraPosition(_faceSpot.localPosition); });
+        RemoveListener(_left, delegate { SetCameraPosition(_leftSpot.localPosition); });
     }
 }
