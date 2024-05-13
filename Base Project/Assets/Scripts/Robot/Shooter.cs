@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//Add this component to BulletSpot on Gun
 public class Shooter : MonoBehaviour
 {
     [SerializeField] private float _shootForce;
@@ -10,7 +11,7 @@ public class Shooter : MonoBehaviour
 
         if (bulletRb != null)
         {
-            bulletRb.AddRelativeForce(transform.forward * _shootForce, ForceMode.VelocityChange);
+            bulletRb.AddRelativeForce(transform.forward * _shootForce, ForceMode.VelocityChange);            
         }
     }
 }

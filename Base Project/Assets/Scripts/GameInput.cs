@@ -53,6 +53,15 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GunRotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""b21685c9-32c1-478b-a6a0-57118c4681d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,50 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09340ae3-0384-4329-be43-1d04f86f584e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""01448c00-ff15-4cb4-b78e-465b1d1c7162"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GunRotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""37dac635-ec34-41a6-9c17-7b64f11bea43"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GunRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""f05fdd06-0c18-4a22-8eb3-8787f05cab8d"",
+                    ""path"": ""<Mouse>/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GunRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -143,6 +196,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_MainScene_Movement = m_MainScene.FindAction("Movement", throwIfNotFound: true);
         m_MainScene_Rotation = m_MainScene.FindAction("Rotation", throwIfNotFound: true);
         m_MainScene_Shoot = m_MainScene.FindAction("Shoot", throwIfNotFound: true);
+        m_MainScene_GunRotation = m_MainScene.FindAction("GunRotation", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +261,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_MainScene_Movement;
     private readonly InputAction m_MainScene_Rotation;
     private readonly InputAction m_MainScene_Shoot;
+    private readonly InputAction m_MainScene_GunRotation;
     public struct MainSceneActions
     {
         private @GameInput m_Wrapper;
@@ -214,6 +269,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_MainScene_Movement;
         public InputAction @Rotation => m_Wrapper.m_MainScene_Rotation;
         public InputAction @Shoot => m_Wrapper.m_MainScene_Shoot;
+        public InputAction @GunRotation => m_Wrapper.m_MainScene_GunRotation;
         public InputActionMap Get() { return m_Wrapper.m_MainScene; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +288,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @GunRotation.started += instance.OnGunRotation;
+            @GunRotation.performed += instance.OnGunRotation;
+            @GunRotation.canceled += instance.OnGunRotation;
         }
 
         private void UnregisterCallbacks(IMainSceneActions instance)
@@ -245,6 +304,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @GunRotation.started -= instance.OnGunRotation;
+            @GunRotation.performed -= instance.OnGunRotation;
+            @GunRotation.canceled -= instance.OnGunRotation;
         }
 
         public void RemoveCallbacks(IMainSceneActions instance)
@@ -267,5 +329,6 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnGunRotation(InputAction.CallbackContext context);
     }
 }

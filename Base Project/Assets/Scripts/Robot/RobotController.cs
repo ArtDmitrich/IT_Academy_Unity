@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class RobotController : MonoBehaviour
 {
     [SerializeField] private PhysMover _mover;
+    [SerializeField] private Rotator _rotatingGunBase;
 
     [SerializeField] private Shooter _shooter;
     [SerializeField] private Transform _gunPos;
@@ -34,19 +35,30 @@ public class RobotController : MonoBehaviour
         _input.MainScene.Shoot.performed += OnShootPerformed;
     }
 
+    private void Update()
+    {
+        var gunRotationInput = _input.MainScene.GunRotation.ReadValue<float>();
+
+        if (gunRotationInput != 0f)
+        {
+            _rotatingGunBase.Rotate(gunRotationInput);
+        }        
+    }
+
     private void FixedUpdate()
     {
-        var horInput = _input.MainScene.Movement.ReadValue<float>();
-        var verInput = _input.MainScene.Rotation.ReadValue<float>();
+        var movementInput = _input.MainScene.Movement.ReadValue<float>();
 
-        if (horInput != 0f)
+        if (movementInput != 0f)
         {
-            _mover.Move(horInput);
+            _mover.Move(movementInput);
         }
 
-        if (verInput != 0f)
+        var rotationInput = _input.MainScene.Rotation.ReadValue<float>();
+
+        if (rotationInput != 0f)
         {
-            _mover.Rotate(verInput);
+            _mover.Rotate(rotationInput);
         }
     }
 
