@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     {
         var inputMovement = _input.MainScene.Movement.ReadValue<Vector2>();
         _characterMotion.x = inputMovement.x;
-        _characterMotion.y = 0f;
         _characterMotion.z = inputMovement.y;
 
 
