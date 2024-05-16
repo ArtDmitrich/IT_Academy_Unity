@@ -7,7 +7,7 @@ public class Shooter : MonoBehaviour
 
     public void Shoot(Bullet bullet)
     {
-        var bulletRb = bullet.GetRigidbody();
+        var bulletRb = bullet.BulletRigidbody;
 
         if (bulletRb != null)
         {

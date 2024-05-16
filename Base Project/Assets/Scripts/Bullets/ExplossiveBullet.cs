@@ -23,7 +23,7 @@ public class ExplosiveBullet : Bullet
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter()
     {
         Explosion();
     }

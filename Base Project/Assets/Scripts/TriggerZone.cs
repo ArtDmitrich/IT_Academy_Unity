@@ -8,8 +8,8 @@ public class TriggerZone : MonoBehaviour
     {        
         if (other.TryGetComponent<RobotController>(out var robot))
         {
-            robot.SetBulletType(_bulletType);
-            robot.SetPosibilityOfShooting(true);
+            robot.CurrentBulletType = _bulletType;
+            robot.IsCanShoot = true;
         }
     }
 
@@ -17,7 +17,7 @@ public class TriggerZone : MonoBehaviour
     {        
         if (other.TryGetComponent<RobotController>(out var robot))
         {
-            robot.SetPosibilityOfShooting(false);
+            robot.IsCanShoot = false;
         }
     }
 }
