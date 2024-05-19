@@ -114,8 +114,8 @@
                 {
                     "name": "",
                     "id": "2c2e99b0-5777-4382-a761-c6880d3ede95",
-                    "path": "<Touchscreen>/Press",
-                    "interactions": "",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "MultiTap",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
