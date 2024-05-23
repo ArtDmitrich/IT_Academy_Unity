@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class RobotController : MonoBehaviour
 {
-    public bool IsCanShoot { get; set; }
-    public BulletType CurrentBulletType { get; set; }
+    public bool IsCanShoot;
+    public BulletType CurrentBulletType;
 
     [SerializeField] private PhysMover _mover;
     [SerializeField] private Rotator _rotatingGunBase;

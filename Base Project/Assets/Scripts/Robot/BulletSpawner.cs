@@ -1,32 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    [SerializeField] private Bullet _standartBuletPrefab;
-    [SerializeField] private Bullet _explosiveBuletPrefab;
-    [SerializeField] private Bullet _pingPongBuletPrefab;
+    [SerializeField] private List<BulletData> _bulletsPrefabs;
 
-
-    public Bullet GetBullet(BulletType bullet, Transform bulletPos)
+    public Bullet GetBullet(BulletType bulletType, Transform bulletPos)
     {
-        switch (bullet)
+        foreach (BulletData bullet in _bulletsPrefabs)
         {
-            case BulletType.Standart:
-                {
-                    return Instantiate(_standartBuletPrefab, bulletPos.position, Quaternion.identity);
-                }
-            case BulletType.Explosive:
-                {
-                    return Instantiate(_explosiveBuletPrefab, bulletPos.position, Quaternion.identity);
-                }
-            case BulletType.PingPong:
-                {
-                    return Instantiate(_pingPongBuletPrefab, bulletPos.position, Quaternion.identity);
-                }
-            default:
-                {
-                    return null;
-                }
+            if (bullet.Key == bulletType)
+            {
+                return Instantiate(bullet.Value, bulletPos.position, Quaternion.identity);
+            }
         }
+
+        return null;
     }
 }
