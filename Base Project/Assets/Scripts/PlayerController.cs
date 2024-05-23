@@ -33,15 +33,6 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    private void Move()
-    {
-        var inputMotion = Input.MainScene.Movement.ReadValue<Vector2>();
-        var resultMotion = transform.TransformDirection(new Vector3(inputMotion.x, 0f, inputMotion.y));
-                
-        _isGrounded = Controller.isGrounded;
-        Controller.Move(resultMotion * _movementSpeed * Time.deltaTime);
-    }
-
     private void ApplyGravity()
     {
         if (_isGrounded && _playerVelocity.y < 0f)
@@ -50,8 +41,15 @@ public class PlayerController : MonoBehaviour
         }
 
         _playerVelocity.y += _gravity * Time.deltaTime;
+    }
 
-        Controller.Move(_playerVelocity * Time.deltaTime);
+    private void Move()
+    {
+        var inputMotion = Input.MainScene.Movement.ReadValue<Vector2>();
+        var resultMotion = transform.TransformDirection(new Vector3(inputMotion.x, 0f, inputMotion.y));
+                
+        _isGrounded = Controller.isGrounded;
+        Controller.Move((resultMotion + _playerVelocity) * _movementSpeed * Time.deltaTime);
     }
 
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
