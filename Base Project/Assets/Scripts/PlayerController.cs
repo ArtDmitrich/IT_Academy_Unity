@@ -8,10 +8,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _animationBlendSpeed;
+    [SerializeField] private int _attacksCount;
         
     private CharacterMovement _playerMovement;
     private Animator _animator;
-    private AnimationClips _animationNames;
     private Camera _characterCamera;
     private InputController _inputController;
 
@@ -25,13 +25,12 @@ public class PlayerController : MonoBehaviour
 
     public CharacterMovement PlayerMovement { get { return _playerMovement = _playerMovement ?? GetComponent<CharacterMovement>(); } }
     public Animator CharacterAnimator { get { return _animator = _animator ?? GetComponent<Animator>(); } }
-    public AnimationClips AnimationNames { get { return _animationNames = _animationNames ?? FindObjectOfType<AnimationClips>(); } }
     public Camera CharacterCamera { get { return _characterCamera = _characterCamera ?? FindObjectOfType<Camera>(); } }
     public InputController InputController { get { return _inputController = _inputController ?? new InputController(); } }
 
     private void OnEnable()
     {
-        StartCoroutine(Spawn());
+        SpawnStart();
 
         InputController.Enable();
 
@@ -122,31 +121,28 @@ public class PlayerController : MonoBehaviour
 
     private void Attack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (!_isAttacking && _isAlive)
+        if (!_isAttacking && _isAlive && !_isJumping)
         {
-            StartCoroutine(Attack());
+            CharacterAnimator.SetTrigger("Attack");
+            var index = Random.Range(1, _attacksCount + 1);
+            CharacterAnimator.SetInteger("AttackIndex", index);
+            _isAttacking = true;
         }
     }
 
-    private IEnumerator Spawn()
+    private void SpawnStart()
     {
         CharacterAnimator.SetTrigger("Spawn");
+    }
 
-        yield return new WaitForSeconds(AnimationNames.GetAnimationLength("Spawn"));
-
+    private void SpawnEnd()
+    {
+        Debug.Log("Span end");
         _isAlive = true;
     }
 
-    private IEnumerator Attack()
+    private void MeleeAttackEnd()
     {
-        CharacterAnimator.SetTrigger("Attack");
-
-        var index = Random.Range(1, AnimationNames.AttacksCount + 1);
-        CharacterAnimator.SetInteger("AttackIndex",index);
-        _isAttacking = true;
-
-        yield return new WaitForSeconds(AnimationNames.GetAnimationLength("Attack" + index));
-
         _isAttacking = false;
     }
 }
