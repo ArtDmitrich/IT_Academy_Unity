@@ -1,0 +1,45 @@
+{
+    "name": "InputController",
+    "maps": [
+        {
+            "name": "Ninja",
+            "id": "e58bf78c-0daf-418a-8573-f75f6907f2d8",
+            "actions": [
+                {
+                    "name": "Turn",
+                    "type": "Button",
+                    "id": "66e188b6-81ce-4ac3-8c12-1eed24081b95",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4f192f0c-3aa0-4545-a26f-f7e6360b03ca",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3494471-0768-4609-936f-05084edc3b74",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
