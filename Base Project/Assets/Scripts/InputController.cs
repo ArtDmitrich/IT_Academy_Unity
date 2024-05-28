@@ -35,6 +35,15 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""47014022-bb1e-43de-a423-32f60ee39a5a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -52,11 +61,33 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b3494471-0768-4609-936f-05084edc3b74"",
-                    ""path"": ""<Touchscreen>/Press"",
-                    ""interactions"": """",
+                    ""path"": ""<Touchscreen>/touch*/Press"",
+                    ""interactions"": ""MultiTap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c813a71-12b5-4df2-8b14-da5a7eaf1862"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57668961-b09d-4dbe-ae16-1ef7d3c03b33"",
+                    ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -68,6 +99,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         // Ninja
         m_Ninja = asset.FindActionMap("Ninja", throwIfNotFound: true);
         m_Ninja_Turn = m_Ninja.FindAction("Turn", throwIfNotFound: true);
+        m_Ninja_Sprint = m_Ninja.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -130,11 +162,13 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Ninja;
     private List<INinjaActions> m_NinjaActionsCallbackInterfaces = new List<INinjaActions>();
     private readonly InputAction m_Ninja_Turn;
+    private readonly InputAction m_Ninja_Sprint;
     public struct NinjaActions
     {
         private @InputController m_Wrapper;
         public NinjaActions(@InputController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Turn => m_Wrapper.m_Ninja_Turn;
+        public InputAction @Sprint => m_Wrapper.m_Ninja_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_Ninja; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -147,6 +181,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Turn.started += instance.OnTurn;
             @Turn.performed += instance.OnTurn;
             @Turn.canceled += instance.OnTurn;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
         private void UnregisterCallbacks(INinjaActions instance)
@@ -154,6 +191,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Turn.started -= instance.OnTurn;
             @Turn.performed -= instance.OnTurn;
             @Turn.canceled -= instance.OnTurn;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
         public void RemoveCallbacks(INinjaActions instance)
@@ -174,5 +214,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     public interface INinjaActions
     {
         void OnTurn(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }

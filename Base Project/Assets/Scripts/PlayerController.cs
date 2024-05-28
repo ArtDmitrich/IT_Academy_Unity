@@ -1,26 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private InputController Input { get { return _input = _input ?? new InputController(); } }
-    private InputController _input;
+    [SerializeField] private Animator _animator;
 
     private void OnEnable()
     {
-        Input.Enable();
-        Input.Ninja.Turn.performed += Turn_performed;
-    }
-    private void OnDisable()
-    {
-        Input.Disable();
-        Input.Ninja.Turn.performed -= Turn_performed;
+        GameController.Instance.Turned += Turn;
+        GameController.Instance.SprintStarted += SetMultiplier;
+        GameController.Instance.SprintCanceled += SetMultiplier;
     }
 
-    private void Turn_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void OnDisable()
+    {
+        GameController.Instance.Turned -= Turn;
+        GameController.Instance.SprintStarted -= SetMultiplier;
+        GameController.Instance.SprintCanceled -= SetMultiplier;
+    }
+
+    private void Turn()
     {
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
+    private void SetMultiplier(float multiplier)
+    {
+        Debug.Log("SetMultiplier");
+
+        _animator.speed = multiplier;
+    }
 }
