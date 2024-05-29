@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
     public UnityAction Turned;
+    public UnityAction Jumped;
     public UnityAction<float> SprintStarted;
     public UnityAction<float> SprintCanceled;
 
@@ -31,9 +32,8 @@ public class GameController : MonoBehaviour
         Input.Ninja.Turn.performed += Turn_performed;
         Input.Ninja.Sprint.started += Sprint_started;
         Input.Ninja.Sprint.canceled += Sprint_canceled;
-
+        Input.Ninja.Jump.performed += Jump_performed;
     }
-
 
     private void OnDisable()
     {
@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
         Input.Ninja.Turn.performed -= Turn_performed;
         Input.Ninja.Sprint.started -= Sprint_started;
         Input.Ninja.Sprint.canceled -= Sprint_canceled;
+        Input.Ninja.Jump.performed -= Jump_performed;
     }
 
     private void Turn_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -56,5 +57,10 @@ public class GameController : MonoBehaviour
     private void Sprint_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         SprintStarted?.Invoke(1f);
+    }
+
+    private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        Jumped?.Invoke();
     }
 }

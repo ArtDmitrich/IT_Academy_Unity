@@ -44,6 +44,15 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""115fe4af-a7d7-4a01-abc0-37f721d7df78"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -90,6 +99,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1aac09ea-3248-40d5-99a7-d8d4636dd55a"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -100,6 +120,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_Ninja = asset.FindActionMap("Ninja", throwIfNotFound: true);
         m_Ninja_Turn = m_Ninja.FindAction("Turn", throwIfNotFound: true);
         m_Ninja_Sprint = m_Ninja.FindAction("Sprint", throwIfNotFound: true);
+        m_Ninja_Jump = m_Ninja.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,12 +184,14 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private List<INinjaActions> m_NinjaActionsCallbackInterfaces = new List<INinjaActions>();
     private readonly InputAction m_Ninja_Turn;
     private readonly InputAction m_Ninja_Sprint;
+    private readonly InputAction m_Ninja_Jump;
     public struct NinjaActions
     {
         private @InputController m_Wrapper;
         public NinjaActions(@InputController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Turn => m_Wrapper.m_Ninja_Turn;
         public InputAction @Sprint => m_Wrapper.m_Ninja_Sprint;
+        public InputAction @Jump => m_Wrapper.m_Ninja_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Ninja; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -184,6 +207,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(INinjaActions instance)
@@ -194,6 +220,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(INinjaActions instance)
@@ -215,5 +244,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     {
         void OnTurn(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
