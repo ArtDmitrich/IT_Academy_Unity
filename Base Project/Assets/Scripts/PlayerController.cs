@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private float _jumpForce;
     [SerializeField] private string _tagForGrounding;
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void Turn()
     {
-        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        _spriteRenderer.flipX = !_spriteRenderer.flipX;
     }
 
     private void Jump()

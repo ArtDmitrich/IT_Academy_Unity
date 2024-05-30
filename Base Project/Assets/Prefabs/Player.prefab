@@ -48,7 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 472516122948945354}
+  _spriteRenderer: {fileID: 3017411470981771159}
   _jumpForce: 300
+  _tagForGrounding: 
 --- !u!50 &9220931610857749240
 Rigidbody2D:
   serializedVersion: 4

@@ -23,7 +23,8 @@ public class LayersController : MonoBehaviour
     {
         foreach (var layer in _layers)
         {
-            layer.MoveRight = !layer.MoveRight;
+            var currentMoveRight = layer.IsMoveRight;
+            layer.IsMoveRight = !currentMoveRight;
         }
     }
 
