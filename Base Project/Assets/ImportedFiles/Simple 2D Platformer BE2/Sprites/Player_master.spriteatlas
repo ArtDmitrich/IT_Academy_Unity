@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Player_master
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+    - {fileID: 2962027833772318483, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+    - {fileID: -5761754228987130096, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+    - {fileID: 5907920678353447086, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+    - {fileID: -6086044393419928071, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+    - {fileID: -2453208753318357113, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+    - {fileID: 6348790710242686107, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+    - {fileID: 5513914976837039818, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+    - {fileID: -434675778434299504, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 10f3cacccb0c4c547be76836eba20664: 2962027833772318483
+    - 10f3cacccb0c4c547be76836eba20664: -6447722072507503168
+    - 10f3cacccb0c4c547be76836eba20664: -6086044393419928071
+    - 10f3cacccb0c4c547be76836eba20664: 5907920678353447086
+    - 10f3cacccb0c4c547be76836eba20664: -5761754228987130096
+    - 10f3cacccb0c4c547be76836eba20664: 5513914976837039818
+    - 10f3cacccb0c4c547be76836eba20664: -434675778434299504
+    - 10f3cacccb0c4c547be76836eba20664: -2453208753318357113
+    - 10f3cacccb0c4c547be76836eba20664: 6348790710242686107
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 2962027833772318483, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  - {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  - {fileID: -6086044393419928071, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  - {fileID: 5907920678353447086, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  - {fileID: -5761754228987130096, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  - {fileID: 5513914976837039818, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  - {fileID: -434675778434299504, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  - {fileID: -2453208753318357113, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  - {fileID: 6348790710242686107, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Idle 1
+  - Idle 0
+  - Jump 2
+  - Jump 1
+  - Jump 0
+  - Run 2
+  - Run 3
+  - Run 0
+  - Run 1
+  m_RenderDataMap: {}
+  m_Tag: Player_master
+  m_IsVariant: 0
