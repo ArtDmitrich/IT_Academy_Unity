@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class FinishPoint : MonoBehaviour
 {
+    [SerializeField] private string _tagToDetected;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.CompareTag(_tagToDetected))
         {
             GameController.Instance.FinishLevel();
         }

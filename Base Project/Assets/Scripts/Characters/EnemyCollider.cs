@@ -10,10 +10,11 @@ public class EnemyCollider : MonoBehaviour
 {
     [SerializeField] EnemyType _enemyType;
     [SerializeField] private float _recoilImpulse;
+    [SerializeField] private string _tagToDetected;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag(_tagToDetected))
         {
             var normal = collision.contacts[0].normal;
 

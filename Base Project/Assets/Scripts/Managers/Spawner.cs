@@ -6,7 +6,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private List<PrefabData> prefabs;
-    [SerializeField] private GameObject _erroneousObject;
 
     public GameObject Spawn(string prefabName)
     {
@@ -19,6 +18,6 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        return _erroneousObject;
+        return null;
     }
 }

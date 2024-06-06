@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 1
   _recoilImpulse: 0
+  _tagToDetected: Player
 --- !u!68 &1049751984779073240
 EdgeCollider2D:
   m_ObjectHideFlags: 0

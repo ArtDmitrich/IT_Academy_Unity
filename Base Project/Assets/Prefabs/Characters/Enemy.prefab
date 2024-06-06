@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 0
   _recoilImpulse: 10
+  _tagToDetected: Player
 --- !u!1 &6403394979624840099
 GameObject:
   m_ObjectHideFlags: 0

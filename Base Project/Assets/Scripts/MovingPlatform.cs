@@ -9,13 +9,16 @@ public class MovingPlatform : MonoBehaviour
     [Min(0.1f)]
     [SerializeField] private float _minDistanceToTarget;
     [SerializeField] private Transform _targetPos;
+    [SerializeField] private string _tagToDetected;
 
     private Vector3 _startPos;
     private Vector3 _directionToMove;
+    private float _sqrMinDistanceToTarget;
 
     private void Start()
     {
         _startPos = transform.position;
+        _sqrMinDistanceToTarget = _minDistanceToTarget * _minDistanceToTarget;
         SetDirectionToMove();
     }
 
@@ -41,7 +44,7 @@ public class MovingPlatform : MonoBehaviour
         var vectorToTarget = _targetPos.position - transform.position;
         var sqrDistanceTotarget = vectorToTarget.sqrMagnitude;
 
-        if (sqrDistanceTotarget <= _minDistanceToTarget * _minDistanceToTarget)
+        if (sqrDistanceTotarget <= _sqrMinDistanceToTarget)
         {
             return true;
         }
@@ -56,7 +59,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag(_tagToDetected))
         {
             collision.transform.SetParent(transform);
         }
@@ -64,7 +67,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag(_tagToDetected))
         {
             collision.transform.SetParent(null);
         }

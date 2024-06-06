@@ -11,7 +11,7 @@ public class PatrolPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == _enemyTag && collision.TryGetComponent(out _enemy))
+        if (collision.gameObject.CompareTag(_enemyTag) && collision.TryGetComponent(out _enemy))
         {
             _enemy.TargetToMove = _nextPatrolPoint;
         }

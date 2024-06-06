@@ -43,10 +43,7 @@ public class EnemyController : MonoBehaviour
         if (TargetToMove == null || CheckMinDistanceToTarget())
         {
             SetActionByState(EnemyState.Idle);
-            return;
         }
-
-        SetActionByState(EnemyState.WalkToTarget);
     }
 
     private void SetActionByState(EnemyState state)

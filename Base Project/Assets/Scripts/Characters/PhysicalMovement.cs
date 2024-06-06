@@ -12,6 +12,7 @@ public class PhysicalMovement : MonoBehaviour
     [SerializeField] private float _distanceToCheckGround;
 
     [SerializeField] private Transform _characterLowPoint;
+    [SerializeField] private LayerMask _layerMask;
 
     private Rigidbody2D Rb { get { return _rb = _rb ?? GetComponent<Rigidbody2D>(); } }
     private Rigidbody2D _rb;
@@ -59,7 +60,7 @@ public class PhysicalMovement : MonoBehaviour
 
     private bool CheckGrounding()
     {
-        var hit = Physics2D.Raycast(_characterLowPoint.position, Vector2.down, _distanceToCheckGround);
+        var hit = Physics2D.Raycast(_characterLowPoint.position, Vector2.down, _distanceToCheckGround, _layerMask);
 
         if (hit.collider != null)
         {
