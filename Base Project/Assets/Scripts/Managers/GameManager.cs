@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private InputController Input { get {  return _input = _input ?? new InputController(); } }
     private InputController _input;
 
+    private List<ChangerController> _changers = new List<ChangerController>();
+
     private void OnEnable()
     {
         Input.Enable();
@@ -37,19 +39,18 @@ public class GameManager : MonoBehaviour
         {
             item.transform.position = _spawnSpots[Random.Range(0, _spawnSpots.Count)].position;
             item.transform.SetParent(_parentForObj);
+            _changers.Add(item);
         }
     }
 
     private void Look_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        var childCount = _parentForObj.transform.childCount;
-
-        if (childCount == 0)
+        if (_changers.Count == 0)
         {
             return;
         }
 
-        var objToLook = _parentForObj.GetChild(Random.Range(0, _parentForObj.transform.childCount));
+        var objToLook = _changers[Random.Range(0, _changers.Count)].transform;
 
         if (objToLook != null && _virtualCamera != null)
         {

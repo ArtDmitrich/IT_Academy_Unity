@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8445863260898189331}
   - component: {fileID: 6058010296661548741}
   - component: {fileID: 8798278579040481256}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: FormChanging
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 7662033869347348478}
   - component: {fileID: 4634108773276755210}
   - component: {fileID: 3684028751214804756}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
