@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class PlayerController : MonoBehaviour
 {
     private IMovable Movement { get { return _movement = _movement ?? GetComponent<IMovable>(); } }
     private IMovable _movement;
+
+    [Inject] private InputController _input;
 
     private void StartMovement(Vector2 direction)
     {
@@ -19,13 +22,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        InputController.Instance.PlayerMovementStarted += StartMovement;
-        InputController.Instance.PlayerMovementStoped += StopMovement;
+        _input.PlayerMovementStarted += StartMovement;
+        _input.PlayerMovementStoped += StopMovement;
     }
 
     private void OnDisable()
     {
-        InputController.Instance.PlayerMovementStarted -= StartMovement;
-        InputController.Instance.PlayerMovementStoped -= StopMovement;
+        _input.PlayerMovementStarted -= StartMovement;
+        _input.PlayerMovementStoped -= StopMovement;
     }
 }

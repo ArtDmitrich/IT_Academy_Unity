@@ -6,8 +6,6 @@ using UnityEngine.Events;
 
 public class InputController : MonoBehaviour
 {
-    public static InputController Instance { get; private set; }
-
     public UnityAction<Vector2> PlayerMovementStarted;
     public UnityAction PlayerMovementStoped;
 
@@ -23,17 +21,6 @@ public class InputController : MonoBehaviour
     private void Movement_canceled(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
     {
         PlayerMovementStoped?.Invoke();
-    }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        
-        Instance = this;
     }
 
     private void OnEnable()
