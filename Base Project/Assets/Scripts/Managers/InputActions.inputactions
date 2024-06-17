@@ -1,0 +1,65 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "PlayerInput",
+            "id": "f384046b-952b-439c-bd52-c6a60b6e0e5f",
+            "actions": [
+                {
+                    "name": "Tap",
+                    "type": "Button",
+                    "id": "c396f571-ef07-41ef-b7cb-d32bf2ba264d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DEBUG",
+                    "type": "Button",
+                    "id": "e6afcb9b-c288-42a1-8e9a-4b0bf07c0ed4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e5cffb90-543c-42f4-b5bb-bb3d825b9ed9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08c61700-11ec-4e93-ace2-7b5d43826bb5",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ecb8f206-0286-4fa3-9b85-91dc08daf328",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DEBUG",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
