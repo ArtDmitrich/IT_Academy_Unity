@@ -42,11 +42,21 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {        
+        CallMainMenu();
+    }
+
+    private void CallMainMenu()
+    {
         InputActions.PlayerInput.Disable();
 
-        _canvas.ActivateStartGameWindow();
         var best = PlayerPrefs.GetInt(_bestScore);
         _canvas.SetBestScore(best);
+
+        _canvas.ActivateStartGameWindow();
+        _canvas.DeactivateFinalText();
+
+        _bloksParent.Restart();
+        _blocksController.Restart();
     }
 
     private void StartGame()
@@ -111,6 +121,8 @@ public class GameController : MonoBehaviour
 
         _canvas.StartGame.onClick.AddListener(StartGame);
         _canvas.RestartGame.onClick.AddListener(RestartGame);
+        _canvas.MainMenu.onClick.AddListener(CallMainMenu);
+
         _blocksController.MovingBlockDisappeared += StopGame;
     }
 
@@ -121,6 +133,8 @@ public class GameController : MonoBehaviour
 
         _canvas.StartGame.onClick.RemoveListener(StartGame);
         _canvas.RestartGame.onClick.RemoveListener(RestartGame);
+        _canvas.MainMenu.onClick.RemoveListener(CallMainMenu);
+
         _blocksController.MovingBlockDisappeared += StopGame;
     }
 }

@@ -6,6 +6,8 @@ public class CanvasController : MonoBehaviour
 {
     public Button StartGame;
     public Button RestartGame;
+    public Button MainMenu;
+
     public TMP_Dropdown DifficultySelector;
 
     [SerializeField] private TMP_Text _speed;
@@ -34,7 +36,8 @@ public class CanvasController : MonoBehaviour
         StartGame.interactable = true;
         DifficultySelector.gameObject.SetActive(true);
         StartGame.gameObject.SetActive(true);
-        _background.gameObject.SetActive(true);        
+        _background.gameObject.SetActive(true);
+        MainMenu.gameObject.SetActive(false);
     }
 
     public void DeactivateStartGameWindow()
@@ -43,6 +46,7 @@ public class CanvasController : MonoBehaviour
         DifficultySelector.gameObject.SetActive(false);
         StartGame.gameObject.SetActive(false);
         _background.gameObject.SetActive(false);
+        MainMenu.gameObject.SetActive(true);
     }
 
     public void ActivateScoreAndSpeed(int score, float speed)
@@ -66,6 +70,8 @@ public class CanvasController : MonoBehaviour
     {
         _finalText.gameObject.SetActive(false);
         _background.gameObject.SetActive(false);
+        _score.gameObject.SetActive(false);
+        _speed.gameObject.SetActive(false);
         RestartGame.interactable = false;
         RestartGame.gameObject.SetActive(false);
     }
