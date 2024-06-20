@@ -8,7 +8,7 @@ public class Pool : MonoBehaviour
 
     private Dictionary<string, Queue<GameObject>> _poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
-    public GameObject GetPooledItem(string poolName)
+    public T GetPooledItem<T>(string poolName) where T : MonoBehaviour
     {
         if (_poolDictionary.ContainsKey(poolName))
         {
@@ -17,27 +17,27 @@ public class Pool : MonoBehaviour
 
             while (counter < pool.Count)
             {
-                var itemToGet = pool.Dequeue();
-                pool.Enqueue(itemToGet);
+                var itemToGet = pool.Dequeue().GetComponent<T>();
+                pool.Enqueue(itemToGet.gameObject);
 
-                if (!itemToGet.activeInHierarchy)
+                if (!itemToGet.gameObject.activeInHierarchy)
                 {
-                    itemToGet.SetActive(true);
+                    itemToGet.gameObject.SetActive(true);
                     return itemToGet;
                 }
 
                 counter++;
             }
 
-            var newItem = _spawner.Spawn(poolName);
+            var newItem = _spawner.Spawn(poolName).GetComponent<T>();
 
             if (newItem == null)
             {
                 return null;
             }
 
-            pool.Enqueue(newItem);
-            newItem.SetActive(true);
+            pool.Enqueue(newItem.gameObject);
+            newItem.gameObject.SetActive(true);
 
             return newItem;
         }
@@ -47,7 +47,7 @@ public class Pool : MonoBehaviour
             AddItemInPool(poolName);
         }
 
-        return GetPooledItem(poolName);
+        return GetPooledItem<T>(poolName);
     }
 
     public void DeactivatePooledItems(string poolName)

@@ -34,20 +34,24 @@ public class GameController : MonoBehaviour
     }
     private int _score;
 
-    private InputActions InputActions { get { return _inputActions = _inputActions ?? new InputActions(); } } 
     private InputActions _inputActions;
 
     [Inject] private BlocksController _blocksController;
     [Inject] private CanvasController _canvas;
 
+    private void Awake()
+    {
+        _inputActions = _inputActions ?? new InputActions();        
+    }
+
     private void Start()
-    {        
+    {
         CallMainMenu();
     }
 
     private void CallMainMenu()
     {
-        InputActions.PlayerInput.Disable();
+        _inputActions.PlayerInput.Disable();
 
         var best = PlayerPrefs.GetInt(_bestScore);
         _canvas.SetBestScore(best);
@@ -71,12 +75,12 @@ public class GameController : MonoBehaviour
         var indexDifficulty = _canvas.DifficultySelector.value;
         _blocksController.StartGame(_startSpeed, _difficultyOptions[indexDifficulty]);
 
-        InputActions.PlayerInput.Enable();
+        _inputActions.PlayerInput.Enable();
     }
 
     private void StopGame()
     {
-        InputActions.PlayerInput.Disable();
+        _inputActions.PlayerInput.Disable();
         _canvas.ActivateFinalText("YOU LOSE!");
 
         if (CheckBestScore(Score))
@@ -116,8 +120,8 @@ public class GameController : MonoBehaviour
 
     private void OnEnable()
     {
-        InputActions.Enable();
-        InputActions.PlayerInput.Tap.performed += Tap_performed;
+        _inputActions.Enable();
+        _inputActions.PlayerInput.Tap.performed += Tap_performed;
 
         _canvas.StartGame.onClick.AddListener(StartGame);
         _canvas.RestartGame.onClick.AddListener(RestartGame);
@@ -128,8 +132,8 @@ public class GameController : MonoBehaviour
 
     private void OnDisable()
     {
-        InputActions.Disable();
-        InputActions.PlayerInput.Tap.performed -= Tap_performed;
+        _inputActions.Disable();
+        _inputActions.PlayerInput.Tap.performed -= Tap_performed;
 
         _canvas.StartGame.onClick.RemoveListener(StartGame);
         _canvas.RestartGame.onClick.RemoveListener(RestartGame);

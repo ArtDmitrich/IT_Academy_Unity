@@ -22,7 +22,6 @@ public class BlocksController : MonoBehaviour
     [SerializeField] private Transform _blocksParent;
 
     [Inject] private Pool _pool;
-    [Inject] private MeshGenerator _meshGenerator;
 
     private MutableBlock _prevBlock;
     private MovingBlock _movingBlock;
@@ -38,12 +37,12 @@ public class BlocksController : MonoBehaviour
         get { return _isAlive; }
         set
         {
+            _isAlive = value;
+
             if (!value)
             {
                 MovingBlockDisappeared?.Invoke();
             }
-
-            _isAlive = value;
         }
     }
 
@@ -96,13 +95,13 @@ public class BlocksController : MonoBehaviour
     private void SetStartingBlock()
     {
         _isMovementX = true;
-        _prevBlock = _pool.GetPooledItem(_mutableBlockName).GetComponent<MutableBlock>();
+        _prevBlock = _pool.GetPooledItem<MutableBlock>(_mutableBlockName);
 
         if (_prevBlock != null)
         {
             var size = new Vector3(_startBlockSizeXZ, StartBlockSizeY, _startBlockSizeXZ);
 
-            _prevBlock.SetMesh(_meshGenerator.Generate(Vector3.zero, size));
+            _prevBlock.SetMesh(MeshGenerator.Generate(size));
             _prevBlock.SetColliderSize(size);
             _prevBlock.transform.position = _blocksParent.position;
 
@@ -113,13 +112,13 @@ public class BlocksController : MonoBehaviour
 
     private void SetMovingBlockToStartPos()
     {
-        var movingBlock = _pool.GetPooledItem(_movingBlockName).GetComponent<MovingBlock>();
+        var movingBlock = _pool.GetPooledItem<MovingBlock>(_movingBlockName);
 
         if (movingBlock != null)
         {
             _movingBlock = movingBlock;
             var size = _prevBlock.Size;
-            _movingBlock.SetMesh(_meshGenerator.Generate(Vector3.zero, size));
+            _movingBlock.SetMesh(MeshGenerator.Generate(size));
             _movingBlock.SetColliderSize(size);
 
             _blocks.Add(_movingBlock.transform);
@@ -178,7 +177,7 @@ public class BlocksController : MonoBehaviour
             return;
         }
 
-        _movingBlock.SetMesh(_meshGenerator.Generate(Vector3.zero, newSizeMovingBlock));
+        _movingBlock.SetMesh(MeshGenerator.Generate(newSizeMovingBlock));
         _movingBlock.SetColliderSize(newSizeMovingBlock);
     }
 
@@ -189,7 +188,7 @@ public class BlocksController : MonoBehaviour
             return;
         }
 
-        _fallingBlock = _pool.GetPooledItem(_fallingBlockName).GetComponent<FallingBlock>();
+        _fallingBlock = _pool.GetPooledItem<FallingBlock>(_fallingBlockName);
         
         if(_fallingBlock == null )
         {
@@ -202,18 +201,18 @@ public class BlocksController : MonoBehaviour
 
         if (_isMovementX)
         {
-            var crashedCubeOffsetX = _offset.x >= 0 ? halfPrevSize.x : -halfPrevSize.x;
+            var crashedCubeOffsetX = Mathf.Sign(_offset.x) * halfPrevSize.x;
             _fallingBlock.transform.position = new Vector3(_movingBlock.transform.position.x + crashedCubeOffsetX, _movingBlock.transform.position.y, _movingBlock.transform.position.z);
             newSizeFallingBlock = new Vector3(Mathf.Abs(_offset.x), prevBlockSize.y, prevBlockSize.z);
         }
         else
         {
-            var crashedCubeOffsetZ = _offset.z >= 0 ? halfPrevSize.z : -halfPrevSize.z;
+            var crashedCubeOffsetZ = Mathf.Sign(_offset.z) * halfPrevSize.z;
             _fallingBlock.transform.position = new Vector3(_movingBlock.transform.position.x, _movingBlock.transform.position.y, _movingBlock.transform.position.z + crashedCubeOffsetZ);
             newSizeFallingBlock = new Vector3(prevBlockSize.x, prevBlockSize.y, Mathf.Abs(_offset.z));
         }
 
-        _fallingBlock.SetMesh(_meshGenerator.Generate(Vector3.zero, newSizeFallingBlock));
+        _fallingBlock.SetMesh(MeshGenerator.Generate(newSizeFallingBlock));
         _fallingBlock.SetColliderSize(newSizeFallingBlock);
         _fallingBlock.transform.rotation = Quaternion.identity;
 

@@ -1,23 +1,19 @@
 using UnityEngine;
 
-public class MeshGenerator : MonoBehaviour
+public static class MeshGenerator
 {
-    public Mesh Generate(Vector3 meshCenter, Vector3 size)
+    public static Mesh Generate(Vector3 size, Vector3 center = new Vector3())
     {
         var mesh = new Mesh();
 
-        mesh.vertices = GenerateVertices(meshCenter, size);
+        mesh.vertices = GenerateVertices(size, center);
         mesh.triangles = GenerateTriangles();
 
         return mesh;
     }
 
-    private Vector3[] GenerateVertices(Vector3 meshCenter, Vector3 size)
+    private static Vector3[] GenerateVertices(Vector3 size, Vector3 center)
     {
-        var centerX = meshCenter.x;
-        var centerY = meshCenter.y;
-        var centerZ = meshCenter.z;
-
         var halfSizeX = size.x / 2f;
         var halfSizeY = size.y / 2f;
         var halfSizeZ = size.z / 2f;
@@ -25,19 +21,19 @@ public class MeshGenerator : MonoBehaviour
 
         return new Vector3[]
         {
-            new Vector3(centerX - halfSizeX, centerY + halfSizeY, centerZ - halfSizeZ), //0: -1, 1, -1
-            new Vector3(centerX - halfSizeX, centerY + halfSizeY, centerZ + halfSizeZ), //1: -1, 1, 1
-            new Vector3(centerX + halfSizeX, centerY + halfSizeY, centerZ + halfSizeZ), //2: 1, 1, 1
-            new Vector3(centerX + halfSizeX, centerY + halfSizeY, centerZ - halfSizeZ), //3: 1, 1, -1
+            new Vector3(center.x - halfSizeX, center.y + halfSizeY, center.z - halfSizeZ), //0: -1, 1, -1
+            new Vector3(center.x - halfSizeX, center.y + halfSizeY, center.z + halfSizeZ), //1: -1, 1, 1
+            new Vector3(center.x + halfSizeX, center.y + halfSizeY, center.z + halfSizeZ), //2: 1, 1, 1
+            new Vector3(center.x + halfSizeX, center.y + halfSizeY, center.z - halfSizeZ), //3: 1, 1, -1
 
-            new Vector3(centerX - halfSizeX, centerY - halfSizeY, centerZ - halfSizeZ), //4: -1, -1, -1
-            new Vector3(centerX - halfSizeX, centerY - halfSizeY, centerZ + halfSizeZ), //5: -1, -1, 1
-            new Vector3(centerX + halfSizeX, centerY - halfSizeY, centerZ + halfSizeZ), //6: 1, -1, 1
-            new Vector3(centerX + halfSizeX, centerY - halfSizeY, centerZ - halfSizeZ), //7: 1, -1, -1
+            new Vector3(center.x - halfSizeX, center.y - halfSizeY, center.z - halfSizeZ), //4: -1, -1, -1
+            new Vector3(center.x - halfSizeX, center.y - halfSizeY, center.z + halfSizeZ), //5: -1, -1, 1
+            new Vector3(center.x + halfSizeX, center.y - halfSizeY, center.z + halfSizeZ), //6: 1, -1, 1
+            new Vector3(center.x + halfSizeX, center.y - halfSizeY, center.z - halfSizeZ), //7: 1, -1, -1
         };
     }
 
-    private int[] GenerateTriangles()
+    private static int[] GenerateTriangles()
     {
         return new int[] { 0, 1, 2, 0, 2, 3, 5, 1, 0, 5, 0, 4, 4, 0, 3, 4, 3, 7, 7, 3, 2, 7, 2, 6, 6, 2, 1, 6, 1, 5, 5, 4, 7, 5, 7, 6 };
     }
