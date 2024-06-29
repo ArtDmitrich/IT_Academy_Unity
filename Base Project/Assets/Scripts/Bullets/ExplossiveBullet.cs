@@ -4,11 +4,11 @@ public class ExplosiveBullet : Bullet
 {
     [SerializeField] private float _radius;
     [SerializeField] private float _power;
-    [SerializeField] private ParticleSystem _explosion;
 
     private void Explosion ()
     {
-        _explosion?.Play();
+        _bulletBody.SetActive(false);
+        _hitEffect.Play();
 
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, _radius);
@@ -22,8 +22,6 @@ public class ExplosiveBullet : Bullet
                 rb.AddExplosionForce(_power, explosionPos, _radius);
             }
         }
-
-        Destroy(gameObject, 0.1f);
     }
 
     private void OnCollisionEnter()

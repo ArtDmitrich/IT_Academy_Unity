@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class StandartBullet : Bullet
 {
-    [SerializeField] private float _bulletLifetime;
-
-    private void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject, _bulletLifetime);
+        _bulletBody.SetActive(false);
+
+        var contact = collision.contacts[0];
+        _hitEffect.transform.position = contact.point;
+        _hitEffect.transform.LookAt(contact.normal);
+        _hitEffect.Play();
     }
 }

@@ -5,13 +5,13 @@ public class BulletSpawner : MonoBehaviour
 {
     [SerializeField] private List<BulletData> _bulletsPrefabs;
 
-    public Bullet GetBullet(BulletType bulletType, Transform bulletPos)
+    public Bullet GetBullet(BulletType bulletType)
     {
         foreach (BulletData bullet in _bulletsPrefabs)
         {
             if (bullet.Key == bulletType)
             {
-                return Instantiate(bullet.Value, bulletPos.position, Quaternion.identity);
+                return Instantiate(bullet.Value);
             }
         }
 

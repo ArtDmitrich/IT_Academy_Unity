@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class RobotController : MonoBehaviour
 {
@@ -10,8 +12,9 @@ public class RobotController : MonoBehaviour
     [SerializeField] private Rotator _rotatingGunBase;
 
     [SerializeField] private Shooter _shooter;
-    [SerializeField] private Transform _gunPos;
-    [SerializeField] private BulletSpawner _bulletSpawner;
+    [SerializeField] private Transform _bulletParent;
+
+    [Inject] private BulletPoolsController _poolsController;
 
     private GameInput _input;
 
@@ -64,7 +67,10 @@ public class RobotController : MonoBehaviour
     {
         if (IsCanShoot && _shooter != null)
         {
-            _shooter.Shoot(_bulletSpawner.GetBullet(CurrentBulletType, _gunPos));
+            var bullet = _poolsController.Get(CurrentBulletType);
+            bullet.transform.SetParent(_bulletParent);
+
+            _shooter.Shoot(bullet);
         }
     }
 }

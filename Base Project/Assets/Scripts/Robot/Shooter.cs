@@ -4,14 +4,19 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField] private float _shootForce;
+    [SerializeField] private ParticleSystem _muzzleFlash;
 
     public void Shoot(Bullet bullet)
     {
+        _muzzleFlash.Play();
         var bulletRb = bullet.BulletRigidbody;
 
         if (bulletRb != null)
         {
-            bulletRb.AddRelativeForce(transform.forward * _shootForce, ForceMode.VelocityChange);            
+            bullet.transform.position = transform.position;
+            bullet.transform.rotation = Quaternion.identity;
+            bulletRb.velocity = Vector3.zero;
+            bulletRb.AddRelativeForce(transform.forward * _shootForce, ForceMode.VelocityChange);
         }
     }
 }
