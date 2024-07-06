@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -542,6 +542,143 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &816327452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816327454}
+  - component: {fileID: 816327453}
+  m_Layer: 0
+  m_Name: AudioManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &816327453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816327452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c7dca5c62ac534f9db22af8452b704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSources:
+  - Key: Example
+    Value: {fileID: 2102712997}
+--- !u!4 &816327454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816327452}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.0906038, y: 1.8838052, z: -22.084728}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1096260488}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &930930288
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1096260488}
+    m_Modifications:
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.664816
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.49999982
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546940824214437083, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+      propertyPath: m_Name
+      value: ExampleSound
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+--- !u!1 &1096260487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096260488}
+  m_Layer: 0
+  m_Name: Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1096260488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096260487}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2102712998}
+  m_Father: {fileID: 816327454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1341862092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7932754510917031534, guid: d82479e36e9999f4eb9d0b4f166a897f, type: 3}
@@ -877,6 +1014,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6951625060358835297, guid: 8ba7b50f63a14f4478177f565cff1687, type: 3}
   m_PrefabInstance: {fileID: 666407803}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &2102712997 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1343751305556308762, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+  m_PrefabInstance: {fileID: 930930288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2102712998 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1561693419309513833, guid: e2dd851355308164b8b311cb597e2a50, type: 3}
+  m_PrefabInstance: {fileID: 930930288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2772097891785513818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1074,3 +1221,4 @@ SceneRoots:
   - {fileID: 478762178}
   - {fileID: 414880447}
   - {fileID: 2030920203}
+  - {fileID: 816327454}

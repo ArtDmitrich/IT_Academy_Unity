@@ -10,5 +10,7 @@ public class StandartBullet : Bullet
         _hitEffect.transform.position = contact.point;
         _hitEffect.transform.LookAt(contact.normal);
         _hitEffect.Play();
+
+        AudioManager.Instance.PlaySound("Example", contact.point);
     }
 }

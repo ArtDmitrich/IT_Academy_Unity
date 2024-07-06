@@ -24,8 +24,9 @@ public class ExplosiveBullet : Bullet
         }
     }
 
-    private void OnCollisionEnter()
+    private void OnCollisionEnter(Collision collision)
     {
         Explosion();
+        AudioManager.Instance.PlaySound("Example", collision.contacts[0].point);
     }
 }

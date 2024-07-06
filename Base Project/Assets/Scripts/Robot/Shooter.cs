@@ -17,6 +17,8 @@ public class Shooter : MonoBehaviour
             bullet.transform.rotation = Quaternion.identity;
             bulletRb.velocity = Vector3.zero;
             bulletRb.AddRelativeForce(transform.forward * _shootForce, ForceMode.VelocityChange);
+
+            AudioManager.Instance.PlaySound("Example", transform.position);
         }
     }
 }
