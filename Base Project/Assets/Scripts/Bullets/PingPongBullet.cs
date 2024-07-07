@@ -9,9 +9,4 @@ public class PingPongBullet : Bullet
         _reboundEffect.transform.position = collision.contacts[0].point;
         _reboundEffect.Play();
     }
-
-    private void OnDisable()
-    {        
-        _hitEffect.Play();
-    }
 }

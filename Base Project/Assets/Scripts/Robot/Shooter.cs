@@ -9,14 +9,12 @@ public class Shooter : MonoBehaviour
     public void Shoot(Bullet bullet)
     {
         _muzzleFlash.Play();
+        bullet.PreparingToShoot(transform);
         var bulletRb = bullet.BulletRigidbody;
 
         if (bulletRb != null)
-        {
-            bullet.transform.position = transform.position;
-            bullet.transform.rotation = Quaternion.identity;
-            bulletRb.velocity = Vector3.zero;
-            bulletRb.AddRelativeForce(transform.forward * _shootForce, ForceMode.VelocityChange);
+        {           
+            bulletRb.AddForce(transform.forward * _shootForce, ForceMode.VelocityChange);
         }
     }
 }

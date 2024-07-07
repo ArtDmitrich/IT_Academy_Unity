@@ -1,6 +1,6 @@
 public enum BulletType
 {
-    Standart,
-    Explosive,
-    PingPong
+    StandartBullet,
+    ExplosiveBullet,
+    PingPongBullet
 }

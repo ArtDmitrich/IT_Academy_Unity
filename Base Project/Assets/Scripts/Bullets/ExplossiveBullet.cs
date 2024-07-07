@@ -7,8 +7,7 @@ public class ExplosiveBullet : Bullet
 
     private void Explosion ()
     {
-        _bulletBody.SetActive(false);
-        _hitEffect.Play();
+        Hit();
 
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, _radius);

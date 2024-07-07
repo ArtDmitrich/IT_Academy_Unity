@@ -4989,8 +4989,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2789468852115863342}
+  m_Children: []
   m_Father: {fileID: 4174206346668554204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4370175853926429011
@@ -5075,6 +5074,7 @@ GameObject:
   - component: {fileID: 4174206346668554204}
   - component: {fileID: 6701080821643755441}
   - component: {fileID: 3921624436215602019}
+  - component: {fileID: 5278484894980506030}
   m_Layer: 0
   m_Name: PingPongBullet
   m_TagString: Untagged
@@ -5098,6 +5098,7 @@ Transform:
   - {fileID: 2800085509580416276}
   - {fileID: 1964906664179195072}
   - {fileID: 5608332839799431754}
+  - {fileID: 2789468852115863342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6701080821643755441
@@ -5141,8 +5142,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletBody: {fileID: 281643225404899710}
   _hitEffect: {fileID: 1844209006061856622}
+  _trail: {fileID: 9089899807883307214}
   _livetime: 5
   _reboundEffect: {fileID: 5169236718375326469}
+--- !u!114 &5278484894980506030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906370747294341391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc16eaa2ddd48e847866b335220fe1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1968409073075801632
 GameObject:
   m_ObjectHideFlags: 0
@@ -39312,19 +39326,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2800085509580416276}
+    m_TransformParent: {fileID: 4174206346668554204}
     m_Modifications:
     - target: {fileID: 2156800503778022264, guid: cb7b6fcc3ca25fd4a8df8404f57d24fe, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2156800503778022264, guid: cb7b6fcc3ca25fd4a8df8404f57d24fe, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2156800503778022264, guid: cb7b6fcc3ca25fd4a8df8404f57d24fe, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2156800503778022264, guid: cb7b6fcc3ca25fd4a8df8404f57d24fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39365,6 +39379,10 @@ PrefabInstance:
     - target: {fileID: 2156800503778022264, guid: cb7b6fcc3ca25fd4a8df8404f57d24fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007332301675547800, guid: cb7b6fcc3ca25fd4a8df8404f57d24fe, type: 3}
+      propertyPath: m_Time
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5007332301675547800, guid: cb7b6fcc3ca25fd4a8df8404f57d24fe, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime3
@@ -39410,5 +39428,10 @@ PrefabInstance:
 --- !u!4 &2789468852115863342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2156800503778022264, guid: cb7b6fcc3ca25fd4a8df8404f57d24fe, type: 3}
+  m_PrefabInstance: {fileID: 4276257481307677782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &9089899807883307214 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 5007332301675547800, guid: cb7b6fcc3ca25fd4a8df8404f57d24fe, type: 3}
   m_PrefabInstance: {fileID: 4276257481307677782}
   m_PrefabAsset: {fileID: 0}

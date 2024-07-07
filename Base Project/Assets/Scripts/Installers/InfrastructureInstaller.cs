@@ -3,12 +3,12 @@ using Zenject;
 
 public class InfrastructureInstaller : MonoInstaller
 {
-    [SerializeField] private BulletSpawner _spawner;
-    [SerializeField] private BulletPoolsController _poolsController;
+    [SerializeField] private UniversalSpawner _universalSpawner;
+    [SerializeField] private PoolsManager _poolsManager;
 
     public override void InstallBindings()
     {
-        Container.Bind<BulletSpawner>().FromInstance(_spawner).AsSingle().NonLazy();
-        Container.Bind<BulletPoolsController>().FromInstance(_poolsController).AsSingle().NonLazy();
+        Container.Bind<UniversalSpawner>().FromInstance(_universalSpawner).AsSingle().NonLazy();
+        Container.Bind<PoolsManager>().FromInstance(_poolsManager).AsSingle().NonLazy();
     }
 }

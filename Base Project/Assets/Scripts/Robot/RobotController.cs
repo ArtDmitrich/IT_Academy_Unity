@@ -12,9 +12,8 @@ public class RobotController : MonoBehaviour
     [SerializeField] private Rotator _rotatingGunBase;
 
     [SerializeField] private Shooter _shooter;
-    [SerializeField] private Transform _bulletParent;
 
-    [Inject] private BulletPoolsController _poolsController;
+    [Inject] private PoolsManager _poolsManager;
 
     private GameInput _input;
 
@@ -67,10 +66,12 @@ public class RobotController : MonoBehaviour
     {
         if (IsCanShoot && _shooter != null)
         {
-            var bullet = _poolsController.Get(CurrentBulletType);
-            bullet.transform.SetParent(_bulletParent);
-
-            _shooter.Shoot(bullet);
+            var item = _poolsManager.GetPooledItem(CurrentBulletType.ToString());
+            
+            if (item.TryGetComponent<Bullet>(out var bullet))
+            {
+                _shooter.Shoot(bullet);
+            }
         }
     }
 }
