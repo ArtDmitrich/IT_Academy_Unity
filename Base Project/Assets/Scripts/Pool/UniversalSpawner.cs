@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UniversalSpawner : MonoBehaviour
+public class UniversalSpawner : Singleton<UniversalSpawner>
 {
     [SerializeField] private List<PooledItemData> _pooledItems;
 

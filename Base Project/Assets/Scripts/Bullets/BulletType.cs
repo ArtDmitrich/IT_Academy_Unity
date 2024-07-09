@@ -2,5 +2,6 @@ public enum BulletType
 {
     StandartBullet,
     ExplosiveBullet,
-    PingPongBullet
+    PingPongBullet,
+    Test
 }

@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Net.WebSockets;
 using UnityEngine;
 using UnityEngine.Pool;
 using Zenject;
@@ -9,8 +12,6 @@ public class UniversalPool : MonoBehaviour
     [SerializeField] private bool _collectionChecks = true;
     [SerializeField] private int _defaultCapacity = 10;
     [SerializeField] private int _maxPoolSize = 50;
-    [SerializeField] private int _startPoolSize = 10;
-
 
     public IObjectPool<PooledItem> Pool
     {
@@ -27,11 +28,18 @@ public class UniversalPool : MonoBehaviour
 
     private IObjectPool<PooledItem> m_Pool;
 
-    [Inject] private UniversalSpawner _spawner;
+    //[Inject] private UniversalSpawner _spawner;
 
     private PooledItem CreatePooledItem()
     {
-        var item = _spawner.GetPooledItem(PooledItemName);
+        //var item = _spawner.GetPooledItem(PooledItemName);
+        var item = UniversalSpawner.Instance.GetPooledItem(PooledItemName);
+
+        if (item == null)
+        {
+            throw new ArgumentNullException("Spawner", "The spawner does not contain a link to the prefab");
+        }
+
         item.transform.SetParent(transform);
         item.Pool = Pool;
 

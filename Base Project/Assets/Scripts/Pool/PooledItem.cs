@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class PooledItem : MonoBehaviour
+public class PooledItem: MonoBehaviour
 {
     public IObjectPool<PooledItem> Pool;
 

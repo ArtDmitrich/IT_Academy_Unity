@@ -66,9 +66,10 @@ public class RobotController : MonoBehaviour
     {
         if (IsCanShoot && _shooter != null)
         {
-            var item = _poolsManager.GetPooledItem(CurrentBulletType.ToString());
-            
-            if (item.TryGetComponent<Bullet>(out var bullet))
+            //var item = _poolsManager.GetPooledItem(CurrentBulletType.ToString());
+            var item = PoolsManager.Instance.GetPooledItem(CurrentBulletType.ToString());
+
+            if (item != null && item.TryGetComponent<Bullet>(out var bullet))
             {
                 _shooter.Shoot(bullet);
             }
