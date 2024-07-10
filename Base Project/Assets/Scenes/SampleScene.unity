@@ -158,6 +158,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1954322290}
+  - {fileID: 2110113214}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &478215696
@@ -493,8 +494,14 @@ MonoBehaviour:
     Value: {fileID: 5278484894980506030, guid: 45d588ac9ed753247988829ad06c5b40, type: 3}
   - Key: ExplosiveBullet
     Value: {fileID: 4045133220339558978, guid: 5f04ebb8470c6c54687aafa08fd9092e, type: 3}
-  - Key: Test
-    Value: {fileID: 4045133220339558978, guid: 5f04ebb8470c6c54687aafa08fd9092e, type: 3}
+  - Key: ShootSound
+    Value: {fileID: 2720138277125433326, guid: 98d40aa3d86deea4f81581684d45aa48, type: 3}
+  - Key: ExplosionSound
+    Value: {fileID: 380837485042923214, guid: f071a9bd52582e24f8d21c9272844322, type: 3}
+  - Key: HitSound
+    Value: {fileID: 8683066057847716326, guid: be5a631ef15c981468b5b60e74a81374, type: 3}
+  - Key: ReboundSound
+    Value: {fileID: 6238650329966810163, guid: 52666ebc8dbd24444a234cf2f81d5c30, type: 3}
 --- !u!4 &1341862092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7932754510917031534, guid: d82479e36e9999f4eb9d0b4f166a897f, type: 3}
@@ -717,6 +724,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6951625060358835297, guid: 8ba7b50f63a14f4478177f565cff1687, type: 3}
   m_PrefabInstance: {fileID: 666407803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2110113213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2110113214}
+  - component: {fileID: 2110113215}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2110113214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110113213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 414880447}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2110113215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110113213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e546f6935eaca4cbc470dea5217e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2115316406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5807,6 +5858,10 @@ PrefabInstance:
       propertyPath: _poolsManager
       value: 
       objectReference: {fileID: 2115316408}
+    - target: {fileID: 1403429044468440191, guid: 7596c608ba75cf64d8da56c7187a2ebd, type: 3}
+      propertyPath: _shootSoundName
+      value: ShootSound
+      objectReference: {fileID: 0}
     - target: {fileID: 2499483777221136956, guid: 7596c608ba75cf64d8da56c7187a2ebd, type: 3}
       propertyPath: m_Name
       value: Robot

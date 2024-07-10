@@ -5145,6 +5145,7 @@ MonoBehaviour:
   _trail: {fileID: 9089899807883307214}
   _livetime: 5
   _reboundEffect: {fileID: 5169236718375326469}
+  _reboundSoundName: ReboundSound
 --- !u!114 &5278484894980506030
 MonoBehaviour:
   m_ObjectHideFlags: 0

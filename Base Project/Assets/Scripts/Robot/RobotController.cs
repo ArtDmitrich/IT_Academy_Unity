@@ -13,7 +13,9 @@ public class RobotController : MonoBehaviour
 
     [SerializeField] private Shooter _shooter;
 
-    [Inject] private PoolsManager _poolsManager;
+    [SerializeField] private string _shootSoundName;
+
+    //[Inject] private PoolsManager _poolsManager;
 
     private GameInput _input;
 
@@ -72,6 +74,15 @@ public class RobotController : MonoBehaviour
             if (item != null && item.TryGetComponent<Bullet>(out var bullet))
             {
                 _shooter.Shoot(bullet);
+
+                var _shootSound = AudioManager.Instance.GetSound(_shootSoundName);
+
+                if (_shootSound != null)
+                {
+                    _shootSound.transform.position = transform.position;
+                    _shootSound.Play();
+                    Debug.LogWarning("Sound");
+                }
             }
         }
     }

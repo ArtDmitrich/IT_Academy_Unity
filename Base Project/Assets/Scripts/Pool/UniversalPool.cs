@@ -37,7 +37,7 @@ public class UniversalPool : MonoBehaviour
 
         if (item == null)
         {
-            throw new ArgumentNullException("Spawner", "The spawner does not contain a link to the prefab");
+            throw new ArgumentNullException("Spawner", $"The spawner does not contain a link to the prefab with name: {PooledItemName}");
         }
 
         item.transform.SetParent(transform);

@@ -4,6 +4,7 @@ public class ExplosiveBullet : Bullet
 {
     [SerializeField] private float _radius;
     [SerializeField] private float _power;
+    [SerializeField] private string _explosiveSoundName;
 
     private void Explosion ()
     {
@@ -20,6 +21,15 @@ public class ExplosiveBullet : Bullet
             {
                 rb.AddExplosionForce(_power, explosionPos, _radius);
             }
+        }
+
+        var _explosiveSound = AudioManager.Instance.GetSound(_explosiveSoundName);
+
+        if (_explosiveSound != null)
+        {
+            _explosiveSound.transform.position = transform.position;
+            _explosiveSound.Play();
+            Debug.LogWarning("Sound Explosion");
         }
     }
 

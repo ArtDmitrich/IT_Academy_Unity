@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolsManager : Singleton<PoolsManager>
+public class PoolsManager: Singleton<PoolsManager>
 {
-    [SerializeField] private List<UniversalPool> _pools;
-    [SerializeField] private bool _poolPrewarming;
-    [SerializeField] private int _startPoolSize = 5;
+    [SerializeField] protected List<UniversalPool> _pools;
+    [SerializeField] protected bool _poolPrewarming;
+    [SerializeField] protected int _startPoolSize = 5;
 
     public PooledItem GetPooledItem(string pooledItemName)
     {

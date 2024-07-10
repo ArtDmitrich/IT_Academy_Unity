@@ -19399,6 +19399,7 @@ MonoBehaviour:
   _trail: {fileID: 3639856796740210072}
   _livetime: 3
   _bulletForce: 100
+  _hitSoundName: HitSound
 --- !u!114 &8317345345815000665
 MonoBehaviour:
   m_ObjectHideFlags: 0

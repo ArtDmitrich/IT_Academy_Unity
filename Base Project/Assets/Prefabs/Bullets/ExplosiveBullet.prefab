@@ -39254,6 +39254,7 @@ MonoBehaviour:
   _livetime: 5
   _radius: 4
   _power: 1000
+  _explosiveSoundName: ExplosionSound
 --- !u!114 &4045133220339558978
 MonoBehaviour:
   m_ObjectHideFlags: 0
