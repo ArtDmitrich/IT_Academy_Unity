@@ -17,7 +17,6 @@ public class PingPongBullet : Bullet
         {
             _reboundSound.transform.position = transform.position;
             _reboundSound.Play();
-            Debug.LogWarning("Sound Rebound");
         }
     }
 }

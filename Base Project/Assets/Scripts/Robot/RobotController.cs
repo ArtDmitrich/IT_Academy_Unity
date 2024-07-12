@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Zenject;
 
 public class RobotController : MonoBehaviour
 {
@@ -14,8 +12,6 @@ public class RobotController : MonoBehaviour
     [SerializeField] private Shooter _shooter;
 
     [SerializeField] private string _shootSoundName;
-
-    //[Inject] private PoolsManager _poolsManager;
 
     private GameInput _input;
 
@@ -68,10 +64,9 @@ public class RobotController : MonoBehaviour
     {
         if (IsCanShoot && _shooter != null)
         {
-            //var item = _poolsManager.GetPooledItem(CurrentBulletType.ToString());
-            var item = PoolsManager.Instance.GetPooledItem(CurrentBulletType.ToString());
+            var bullet = BulletManager.Instance.GetBullet(CurrentBulletType.ToString());
 
-            if (item != null && item.TryGetComponent<Bullet>(out var bullet))
+            if (bullet != null)
             {
                 _shooter.Shoot(bullet);
 
@@ -81,7 +76,6 @@ public class RobotController : MonoBehaviour
                 {
                     _shootSound.transform.position = transform.position;
                     _shootSound.Play();
-                    Debug.LogWarning("Sound");
                 }
             }
         }

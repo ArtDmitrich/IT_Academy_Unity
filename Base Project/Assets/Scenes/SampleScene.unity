@@ -157,10 +157,74 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1954322290}
   - {fileID: 2110113214}
+  - {fileID: 454650858}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &454650857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454650858}
+  - component: {fileID: 454650860}
+  - component: {fileID: 454650859}
+  m_Layer: 0
+  m_Name: BulletManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454650858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454650857}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 414880447}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &454650859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454650857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fc99e03eccca24095fd634dc53d0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledItems:
+  - Key: StandartBullet
+    Value: {fileID: 8317345345815000665, guid: 824b1ff17e074b34cad813c5c1419f2b, type: 3}
+  - Key: PingPongBullet
+    Value: {fileID: 5278484894980506030, guid: 45d588ac9ed753247988829ad06c5b40, type: 3}
+  - Key: ExplosiveBullet
+    Value: {fileID: 4045133220339558978, guid: 5f04ebb8470c6c54687aafa08fd9092e, type: 3}
+--- !u!114 &454650860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454650857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b2e7f3789d58da47baf4254f64f8954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &478215696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -443,135 +507,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &914791330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 914791331}
-  - component: {fileID: 914791332}
-  m_Layer: 0
-  m_Name: UniversalSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &914791331
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914791330}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1954322290}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &914791332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914791330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dba943c22a6e4c40bd23a67cac0a07d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pooledItems:
-  - Key: StandartBullet
-    Value: {fileID: 8317345345815000665, guid: 824b1ff17e074b34cad813c5c1419f2b, type: 3}
-  - Key: PingPongBullet
-    Value: {fileID: 5278484894980506030, guid: 45d588ac9ed753247988829ad06c5b40, type: 3}
-  - Key: ExplosiveBullet
-    Value: {fileID: 4045133220339558978, guid: 5f04ebb8470c6c54687aafa08fd9092e, type: 3}
-  - Key: ShootSound
-    Value: {fileID: 2720138277125433326, guid: 98d40aa3d86deea4f81581684d45aa48, type: 3}
-  - Key: ExplosionSound
-    Value: {fileID: 380837485042923214, guid: f071a9bd52582e24f8d21c9272844322, type: 3}
-  - Key: HitSound
-    Value: {fileID: 8683066057847716326, guid: be5a631ef15c981468b5b60e74a81374, type: 3}
-  - Key: ReboundSound
-    Value: {fileID: 6238650329966810163, guid: 52666ebc8dbd24444a234cf2f81d5c30, type: 3}
 --- !u!4 &1341862092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7932754510917031534, guid: d82479e36e9999f4eb9d0b4f166a897f, type: 3}
   m_PrefabInstance: {fileID: 478215696}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1626427736
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1626427737}
-  - component: {fileID: 1626427738}
-  m_Layer: 0
-  m_Name: SceneContex
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1626427737
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626427736}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1952201246}
-  m_Father: {fileID: 2030920203}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1626427738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626427736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 1952201247}
-  _installerPrefabs: []
-  _autoRun: 1
-  OnPreInstall:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPostInstall:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPreResolve:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPostResolve:
-    m_PersistentCalls:
-      m_Calls: []
-  _parentNewObjectsUnderSceneContext: 0
-  _contractNames: []
-  _parentContractNames: []
 --- !u!1 &1878547543
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,117 +548,6 @@ Transform:
   - {fileID: 4448921825425965310}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1952201245
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1952201246}
-  - component: {fileID: 1952201247}
-  m_Layer: 0
-  m_Name: Installer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1952201246
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952201245}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1626427737}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1952201247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952201245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c19409094fc3f46a0538cda1ead9d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _universalSpawner: {fileID: 914791332}
-  _poolsManager: {fileID: 2115316408}
---- !u!1 &1954322289
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1954322290}
-  m_Layer: 0
-  m_Name: UniversalPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1954322290
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954322289}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2115316407}
-  - {fileID: 914791331}
-  m_Father: {fileID: 414880447}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2030920202
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2030920203}
-  m_Layer: 0
-  m_Name: System
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2030920203
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030920202}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.625978, y: 0.58497417, z: 101.91295}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1626427737}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2048097264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6951625060358835297, guid: 8ba7b50f63a14f4478177f565cff1687, type: 3}
@@ -734,6 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2110113214}
   - component: {fileID: 2110113215}
+  - component: {fileID: 2110113216}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -768,53 +598,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e546f6935eaca4cbc470dea5217e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2115316406
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2115316407}
-  - component: {fileID: 2115316408}
-  m_Layer: 0
-  m_Name: PoolsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2115316407
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115316406}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1954322290}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2115316408
+--- !u!114 &2110113216
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115316406}
+  m_GameObject: {fileID: 2110113213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 951904fee4f76154086aa5a1364e4875, type: 3}
+  m_Script: {fileID: 11500000, guid: 07fc99e03eccca24095fd634dc53d0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pools: []
-  _poolPrewarming: 1
-  _startPoolSize: 5
+  _pooledItems:
+  - Key: ShootSound
+    Value: {fileID: 2720138277125433326, guid: 98d40aa3d86deea4f81581684d45aa48, type: 3}
+  - Key: HitSound
+    Value: {fileID: 8683066057847716326, guid: be5a631ef15c981468b5b60e74a81374, type: 3}
+  - Key: ExplosionSound
+    Value: {fileID: 380837485042923214, guid: f071a9bd52582e24f8d21c9272844322, type: 3}
+  - Key: ReboundSound
+    Value: {fileID: 6238650329966810163, guid: 52666ebc8dbd24444a234cf2f81d5c30, type: 3}
 --- !u!1 &1275286342960788
 GameObject:
   m_ObjectHideFlags: 0
@@ -5857,7 +5661,7 @@ PrefabInstance:
     - target: {fileID: 1403429044468440191, guid: 7596c608ba75cf64d8da56c7187a2ebd, type: 3}
       propertyPath: _poolsManager
       value: 
-      objectReference: {fileID: 2115316408}
+      objectReference: {fileID: 0}
     - target: {fileID: 1403429044468440191, guid: 7596c608ba75cf64d8da56c7187a2ebd, type: 3}
       propertyPath: _shootSoundName
       value: ShootSound
@@ -15846,4 +15650,3 @@ SceneRoots:
   - {fileID: 2772097891785513818}
   - {fileID: 478762178}
   - {fileID: 414880447}
-  - {fileID: 2030920203}

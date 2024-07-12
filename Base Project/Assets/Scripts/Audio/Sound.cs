@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sound : MonoBehaviour
@@ -26,10 +25,6 @@ public class Sound : MonoBehaviour
     {
         _source = GetComponent<AudioSource>();
         _pooledItem = GetComponent<PooledItem>();
-    }
-
-    private void Start()
-    {
         _soundDuration = _source.clip.length;
     }
 }

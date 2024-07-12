@@ -22,7 +22,6 @@ public class StandartBullet : Bullet
         {
             _hitSound.transform.position = transform.position;
             _hitSound.Play();
-            Debug.LogWarning("Sound Hit");
         }
     }
 }

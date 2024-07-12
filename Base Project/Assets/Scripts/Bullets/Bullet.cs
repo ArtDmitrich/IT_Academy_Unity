@@ -1,8 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Pool;
-using Zenject.SpaceFighter;
-using static UnityEngine.ParticleSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Bullet : MonoBehaviour

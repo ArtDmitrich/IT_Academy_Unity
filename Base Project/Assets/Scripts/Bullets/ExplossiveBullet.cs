@@ -29,7 +29,6 @@ public class ExplosiveBullet : Bullet
         {
             _explosiveSound.transform.position = transform.position;
             _explosiveSound.Play();
-            Debug.LogWarning("Sound Explosion");
         }
     }
 

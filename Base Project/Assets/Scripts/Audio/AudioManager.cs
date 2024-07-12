@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class AudioManager : Singleton<AudioManager>
+public class AudioManager : ItemManager<AudioManager>
 {
     public Sound GetSound(string soundName)
     {
-        var item = PoolsManager.Instance.GetPooledItem(soundName);
+        var item = _poolManager.GetPooledItem(soundName);
 
-        if (item.TryGetComponent<Sound>(out var sound))
+        if (item == null)
+        {
+            return null;
+        }
+        else if(item.TryGetComponent<Sound>(out var sound))
         {
             return sound;
         }
