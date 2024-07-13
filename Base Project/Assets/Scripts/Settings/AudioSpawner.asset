@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b865bc9723832f469c0268faca11a5f, type: 3}
+  m_Name: AudioSpawner
+  m_EditorClassIdentifier: 
+  _pooledItems:
+  - Key: ShootSound
+    Value: {fileID: 2720138277125433326, guid: 98d40aa3d86deea4f81581684d45aa48, type: 3}
+  - Key: HitSound
+    Value: {fileID: 8683066057847716326, guid: be5a631ef15c981468b5b60e74a81374, type: 3}
+  - Key: ExplosionSound
+    Value: {fileID: 380837485042923214, guid: f071a9bd52582e24f8d21c9272844322, type: 3}
+  - Key: ReboundSound
+    Value: {fileID: 6238650329966810163, guid: 52666ebc8dbd24444a234cf2f81d5c30, type: 3}

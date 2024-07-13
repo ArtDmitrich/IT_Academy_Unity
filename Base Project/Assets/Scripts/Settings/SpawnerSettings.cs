@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PoolSettings", order = 1)]
-public class PoolSettings : ScriptableObject
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/SpawnerSettings", order = 1)]
+public class SpawnerSettings : ScriptableObject
 {
     [SerializeField] private List<PooledItemData> _pooledItems;
 
@@ -17,6 +16,5 @@ public class PoolSettings : ScriptableObject
             }
         }
         return null;
-
     }
 }

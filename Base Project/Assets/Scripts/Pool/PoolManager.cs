@@ -1,19 +1,21 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
-public class PoolManager : MonoBehaviour
+
+public class PoolManager: MonoBehaviour
 {
-    [SerializeField] protected List<PoolByName> _pools;
-    [SerializeField] protected bool _poolPrewarming = true;
-    [SerializeField] protected int _startPoolSize = 5;
+    protected List<PoolByName> _pools;
+    protected bool _poolPrewarming;
+    protected int _startPoolSize;
 
-    private Spawner _spawner;
+    private SpawnerSettings _spawnerSettings;
 
-    public void Init(Spawner spawner)
+    public void Init(SpawnerSettings spawnerSettings, bool poolPrewarming, int startPoolSize)
     {
-        _spawner = spawner;
         _pools = new List<PoolByName>();
+        _spawnerSettings = spawnerSettings;
+        _poolPrewarming = poolPrewarming;
+        _startPoolSize = startPoolSize;
     }
 
     public T GetPooledItem<T>(string pooledItemName) where T : MonoBehaviour
@@ -52,13 +54,11 @@ public class PoolManager : MonoBehaviour
     private void AddPool(string pooledItemName, out PoolByName newPool)
     {
         var newObj = new GameObject();
-        newPool = newObj.AddComponent<PoolByName>();
+        newObj.transform.SetParent(transform);
+        newObj.name = pooledItemName + "Pool";
 
-        newPool.transform.SetParent(transform);
-        newPool.PooledItemName = pooledItemName;
-        newPool.name = pooledItemName + "Pool";
-        newPool.Init(_spawner);
-        
+        newPool = new PoolByName(pooledItemName, _spawnerSettings, newObj.transform);
+
         _pools.Add(newPool);
 
         if (_poolPrewarming)

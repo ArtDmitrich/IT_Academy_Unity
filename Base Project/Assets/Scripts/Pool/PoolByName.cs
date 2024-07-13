@@ -2,13 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class PoolByName : MonoBehaviour
+public class PoolByName
 {
     public string PooledItemName;
-
-    [SerializeField] private bool _collectionChecks = true;
-    [SerializeField] private int _defaultCapacity = 10;
-    [SerializeField] private int _maxPoolSize = 50;
 
     public IObjectPool<PooledItem> Pool
     {
@@ -24,28 +20,44 @@ public class PoolByName : MonoBehaviour
     }
 
     private IObjectPool<PooledItem> m_Pool;
-    private Spawner _spawner;
 
-    public void Init(Spawner spawner)
+    private bool _collectionChecks;
+    private int _defaultCapacity;
+    private int _maxPoolSize;
+
+    private Transform _parentForItems;
+    private SpawnerSettings _spawnerSettings;
+
+    public PoolByName(string pooledItemName, SpawnerSettings spawnerSettings, Transform parentForItem, bool collectionChecks = true, int defaultCapacity = 10, int maxPoolSize = 50)
     {
-        _spawner = spawner;
+        PooledItemName = pooledItemName;
+        _spawnerSettings = spawnerSettings;
+        _parentForItems = parentForItem;
+        _collectionChecks = collectionChecks;
+        _defaultCapacity = defaultCapacity;
+        _maxPoolSize = maxPoolSize;
+    }
+    
+    public void Init(SpawnerSettings spawnerSettings)
+    {
+        _spawnerSettings = spawnerSettings;
     }
 
     private PooledItem CreatePooledItem()
     {
-        if (_spawner == null)
+        if (_spawnerSettings == null)
         {
-            throw new ArgumentNullException(gameObject.name, "The spawner is null. You need to call the method Init(Spawner spawner) and set the spawner");
+            throw new ArgumentNullException(PooledItemName + "Pool", "The spawner is null. You need to call the method Init(SpawnerSettings spawnerSettings) and set the spawner");
         }
 
-        var item = _spawner.GetPooledItem(PooledItemName);
+        var item = _spawnerSettings.GetPooledItem(PooledItemName);
 
         if (item == null)
         {
-            throw new ArgumentNullException(_spawner.name, $"The spawner does not contain a link to the prefab with name: {PooledItemName}");
+            throw new ArgumentNullException(_spawnerSettings.name, $"The spawner does not contain a link to the prefab with name: {PooledItemName}");
         }
 
-        item.transform.SetParent(transform);
+        item.transform.SetParent(_parentForItems);
         item.Pool = Pool;
 
         return item;
@@ -63,6 +75,6 @@ public class PoolByName : MonoBehaviour
 
     private void OnDestroyPoolObject(PooledItem item)
     {
-        Destroy(item.gameObject);
+        GameObject.Destroy(item.gameObject);
     }
 }

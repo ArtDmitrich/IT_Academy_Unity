@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -171,7 +171,6 @@ GameObject:
   m_Component:
   - component: {fileID: 454650858}
   - component: {fileID: 454650860}
-  - component: {fileID: 454650859}
   m_Layer: 0
   m_Name: BulletManager
   m_TagString: Untagged
@@ -194,25 +193,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 414880447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &454650859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454650857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07fc99e03eccca24095fd634dc53d0a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pooledItems:
-  - Key: StandartBullet
-    Value: {fileID: 8317345345815000665, guid: 824b1ff17e074b34cad813c5c1419f2b, type: 3}
-  - Key: PingPongBullet
-    Value: {fileID: 5278484894980506030, guid: 45d588ac9ed753247988829ad06c5b40, type: 3}
-  - Key: ExplosiveBullet
-    Value: {fileID: 4045133220339558978, guid: 5f04ebb8470c6c54687aafa08fd9092e, type: 3}
 --- !u!114 &454650860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2e7f3789d58da47baf4254f64f8954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolSettings: {fileID: 11400000, guid: c7c6687a7ab59e349b7c40874ccab2d3, type: 2}
+  _spawnerSettings: {fileID: 11400000, guid: 6a86bd886a837dc4193ccac4583b876e, type: 2}
+  _poolPrewarming: 1
+  _startPoolSize: 5
 --- !u!1001 &478215696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -564,7 +546,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2110113214}
   - component: {fileID: 2110113215}
-  - component: {fileID: 2110113216}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -599,27 +580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e546f6935eaca4cbc470dea5217e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2110113216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110113213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07fc99e03eccca24095fd634dc53d0a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pooledItems:
-  - Key: ShootSound
-    Value: {fileID: 2720138277125433326, guid: 98d40aa3d86deea4f81581684d45aa48, type: 3}
-  - Key: HitSound
-    Value: {fileID: 8683066057847716326, guid: be5a631ef15c981468b5b60e74a81374, type: 3}
-  - Key: ExplosionSound
-    Value: {fileID: 380837485042923214, guid: f071a9bd52582e24f8d21c9272844322, type: 3}
-  - Key: ReboundSound
-    Value: {fileID: 6238650329966810163, guid: 52666ebc8dbd24444a234cf2f81d5c30, type: 3}
+  _spawnerSettings: {fileID: 11400000, guid: 15554450b8427ae47b8a910bdb501c74, type: 2}
+  _poolPrewarming: 1
+  _startPoolSize: 5
 --- !u!1 &1275286342960788
 GameObject:
   m_ObjectHideFlags: 0
