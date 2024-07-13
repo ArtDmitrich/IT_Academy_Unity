@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PoolSettings", order = 1)]
+public class PoolSettings : ScriptableObject
 {
     [SerializeField] private List<PooledItemData> _pooledItems;
 

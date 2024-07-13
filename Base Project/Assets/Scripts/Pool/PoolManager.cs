@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Assertions;
 public class PoolManager : MonoBehaviour
 {
     [SerializeField] protected List<PoolByName> _pools;
@@ -16,7 +16,7 @@ public class PoolManager : MonoBehaviour
         _pools = new List<PoolByName>();
     }
 
-    public PooledItem GetPooledItem(string pooledItemName)
+    public T GetPooledItem<T>(string pooledItemName) where T : MonoBehaviour
     {
         var pool = GetPool(pooledItemName);
 
@@ -27,7 +27,7 @@ public class PoolManager : MonoBehaviour
 
         try
         {
-            return pool.Pool.Get();
+            return pool.Pool.Get().GetComponent<T>();
         }
         catch (ArgumentNullException ex)
         {

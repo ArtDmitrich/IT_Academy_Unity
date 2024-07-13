@@ -1,18 +1,11 @@
+using System;
+using UnityEngine;
+
 public class BulletManager : ItemManager<BulletManager>
 {
+    [SerializeField] PoolSettings poolSettings;
     public Bullet GetBullet(string bulletName)
     {
-        var item = _poolManager.GetPooledItem(bulletName);
-
-        if (item == null)
-        {
-            return null;
-        }
-        else if (item.TryGetComponent<Bullet>(out var bullet))
-        {
-            return bullet;
-        }
-
-        return null;
+        return _poolManager.GetPooledItem<Bullet>(bulletName);
     }
 }
