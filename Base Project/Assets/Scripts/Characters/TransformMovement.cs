@@ -32,4 +32,9 @@ public class TransformMovement : MonoBehaviour, IMovable
             Move();
         }
     }
+
+    private void OnDisable()
+    {
+        StopMovement();
+    }
 }

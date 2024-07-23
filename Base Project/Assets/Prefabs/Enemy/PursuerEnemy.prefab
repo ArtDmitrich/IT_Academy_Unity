@@ -9,10 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7456549820616138878}
+  - component: {fileID: 7320541587358490}
   - component: {fileID: 7929372050611566408}
   - component: {fileID: 7794117268584777766}
-  - component: {fileID: 3171849358814371125}
-  m_Layer: 0
+  - component: {fileID: 396970073521715954}
+  - component: {fileID: -916009064588135177}
+  - component: {fileID: 8476067012017208411}
+  - component: {fileID: 2660477429062155311}
+  - component: {fileID: 8617583145974710909}
+  m_Layer: 3
   m_Name: PursuerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,6 +40,33 @@ Transform:
   - {fileID: 8866263178916886211}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &7320541587358490
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224341723674246092}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &7929372050611566408
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -82,9 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30b0f06fa1e31c419fcbd476dde841c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealthMax: 2
   _minDistanceToTarget: 0.2
---- !u!114 &3171849358814371125
+--- !u!114 &396970073521715954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,10 +124,88 @@ MonoBehaviour:
   m_GameObject: {fileID: 4224341723674246092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f5fff458342d7d4aaf0ef3c051c800f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f30b74eff7bbbe4284eff2a0c0d8bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 2
+  _movementSpeed: 1
+--- !u!114 &-916009064588135177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224341723674246092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 779de7a5a0c858a4cae94b8e39d56dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 10
+  AutoHealPerSec: 0
+--- !u!114 &8476067012017208411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224341723674246092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e16289c0f89bf40a152ebcf8d93862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2660477429062155311
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224341723674246092}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
+--- !u!114 &8617583145974710909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224341723674246092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca27b70cad5f20449b7bd1715960f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _damageValue: 5
+  _coldownTime: 1.5
 --- !u!1 &8617893974178784453
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8866263178916886211}
   - component: {fileID: 8077234028242279047}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

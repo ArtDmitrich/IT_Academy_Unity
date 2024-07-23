@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovableEnemy : Enemy
+public class MovableEnemy : MovableCharacter
 {
     public Transform Target
     {
@@ -16,15 +16,19 @@ public class MovableEnemy : Enemy
     }
 
     protected Vector2 _directionToMove;
-
-    protected IMovable Movement { get { return _movement = _movement ?? GetComponent<IMovable>(); } }
-    private IMovable _movement;
-
+    protected PooledItem PooledItem { get { return _pooledItem = _pooledItem ?? GetComponent<PooledItem>(); } }
+    private PooledItem _pooledItem;
     private Transform _target;
 
     protected Vector2 GetDirectionToMove()
     {
         var vectorToTarget = Target.position - transform.position;
         return vectorToTarget.normalized;
+    }
+
+    protected override void Death()
+    {
+        base.Death();
+        PooledItem.Release();
     }
 }

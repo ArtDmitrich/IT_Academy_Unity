@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MovableCharacter
 {
-    private IMovable Movement { get { return _movement = _movement ?? GetComponent<IMovable>(); } }
-    private IMovable _movement;
-
+    [SerializeField] private int _damageReduction;
     [Inject] private InputController _input;
+
+    public override void TakeDamage(float damage)
+    {
+        damage -= _damageReduction;
+
+        base.TakeDamage(damage);
+    }
 
     private void StartMovement(Vector2 direction)
     {
@@ -20,14 +25,16 @@ public class PlayerController : MonoBehaviour
         Movement?.StopMovement();
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _input.PlayerMovementStarted += StartMovement;
         _input.PlayerMovementStoped += StopMovement;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         _input.PlayerMovementStarted -= StartMovement;
         _input.PlayerMovementStoped -= StopMovement;
     }

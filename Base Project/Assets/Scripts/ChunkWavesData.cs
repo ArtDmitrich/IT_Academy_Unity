@@ -3,7 +3,8 @@ using System;
 [Serializable]
 public struct ChunkWavesData
 {
-    public string PrefabName;
+    public EnemyType EnemyType;
     public int Count;
     public int TimeToNextChunk;
+    public float EnemySpawnColdown;
 }
